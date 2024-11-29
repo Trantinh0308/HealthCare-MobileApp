@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="mainColor">#00A651</color>
+    <color name="text_Color">#012537</color>
+    <color name="Red">#F44336</color>
+    <color name="colorCircleSelected">#F89414</color>
+    <color name="gray">#676666</color>
+    <color name="light_gray">#C3C3C3</color>
+    <color name="color_background_menu_schedule">#D3DEFF</color>
+    <color name="chat_color_sender">#1E88E5</color>
+</resources>

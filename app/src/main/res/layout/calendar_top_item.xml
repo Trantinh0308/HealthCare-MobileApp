@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:background="@drawable/custom_calendar_default"
+    android:layout_marginLeft="2dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/date"
+            android:text="Thứ 5"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/dateWeek"
+            android:layout_below="@id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:textColor="@color/text_Color"
+            android:text="12/11" />
+    </RelativeLayout>
+</RelativeLayout>

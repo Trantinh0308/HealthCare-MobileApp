@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:background="@drawable/custom_top_form_menu_orther"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/top_layout"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Thao tác"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_Color"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/icon_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/icon_close" />
+        </RelativeLayout>
+        <View
+            android:id="@+id/line_top"
+            android:layout_below="@id/top_layout"
+            android:layout_width="match_parent"
+            android:background="#E0E6FA"
+            android:layout_height="1dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_below="@id/line_top"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/btn_skip"
+                android:clickable="true"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/icon_skip"
+                    android:background="@drawable/icon_skip"
+                    android:layout_marginStart="15dp"
+                    android:backgroundTint="@color/colorCircleSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_toEndOf="@id/icon_skip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:text="Bỏ qua"
+                    android:textSize="17sp"
+                    android:textColor="@color/text_Color"/>
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/line_two"
+                android:layout_below="@id/btn_skip"
+                android:layout_width="match_parent"
+                android:background="#E0E6FA"
+                android:layout_height="1dp"/>
+
+            <RelativeLayout
+                android:id="@+id/btn_edit"
+                android:layout_below="@id/line_two"
+                android:clickable="true"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/icon_edit"
+                    android:background="@drawable/icon_edit"
+                    android:layout_marginStart="12dp"
+                    android:backgroundTint="#757474"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_toEndOf="@+id/icon_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_height="wrap_content"
+                    android:text="Sửa"
+                    android:textSize="17sp"
+                    android:textColor="@color/text_Color"/>
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/line_three"
+                android:layout_below="@id/btn_edit"
+                android:layout_width="match_parent"
+                android:background="#E0E6FA"
+                android:layout_height="1dp"/>
+
+            <RelativeLayout
+                android:id="@+id/btn_delete"
+                android:layout_below="@id/line_three"
+                android:clickable="true"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/icon_delete"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/icon_delete"
+                    android:backgroundTint="@color/Red"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_toEndOf="@+id/icon_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xóa"
+                    android:layout_marginLeft="12dp"
+                    android:textSize="17sp"
+                    android:textColor="@color/text_Color"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

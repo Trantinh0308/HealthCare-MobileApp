@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.patient.ScheduleActivity">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp"
+        android:background="@color/mainColor"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="25dp"
+            android:src="@drawable/icon_back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="@color/white"
+            android:layout_marginTop="13dp"
+            android:id="@+id/back_btn" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lịch uống thuốc"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+        <RelativeLayout
+            android:id="@+id/btnAdd"
+            android:clickable="true"
+            android:layout_alignParentEnd="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/add"
+            android:layout_width="28dp"
+            android:layout_height="28dp"/>
+    </RelativeLayout>
+    
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:visibility="visible"
+        android:layout_below="@id/top_layout"
+        android:layout_marginTop="330dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="35dp"
+        android:layout_height="35dp"/>
+    
+    <ScrollView
+        android:layout_below="@id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/block_data"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/block_listDate"
+                android:layout_marginTop="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/btnPrev"
+                    android:clickable="true"
+                    android:layout_width="30dp"
+                    android:layout_height="50dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/prev"/>
+                </RelativeLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list_date"
+                    android:layout_toEndOf="@id/btnPrev"
+                    android:layout_toStartOf="@id/btnNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <RelativeLayout
+                    android:id="@+id/btnNext"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="30dp"
+                    android:layout_height="50dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/icon_right"/>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/block_drink"
+                android:layout_below="@id/block_listDate"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_drink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chưa uống"
+                    android:textSize="16sp"
+                    android:layout_marginStart="12dp"
+                    android:textColor="@color/text_Color"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list_drink"
+                    android:layout_below="@id/text_drink"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list_enable"
+                    android:layout_below="@id/list_drink"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/block_drank"
+                android:layout_below="@id/block_drink"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_drank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đã xong"
+                    android:textSize="16sp"
+                    android:layout_marginStart="12dp"
+                    android:textColor="@color/text_Color"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list_drank"
+                    android:layout_below="@id/text_drank"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list_skip"
+                    android:layout_below="@id/list_drank"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

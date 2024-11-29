@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.BODY_SENSORS" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HealthCare"
+        tools:targetApi="31">
+        <activity
+            android:name=".activities.patient.Payment"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient.Person_Online"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient.ConfirmOnlineAppointment"
+            android:exported="false" />
+        <activity
+            android:name=".Websocket"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient.Calendar_Online"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient.DoctorDetail"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient.ScheduleEdit"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient.DetailSchedule"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient.ScheduleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.employee.MainEmployee"
+            android:exported="false" />
+        <activity
+            android:name=".activities.doctor.DoctorMain"
+            android:exported="false" />
+        <activity
+            android:name=".testCallingVideo.LiveActivity"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".testCallingVideo.Calling" -->
+        <!-- android:exported="false" /> -->
+        <activity
+            android:name=".testCallingVideo.Calling"
+            android:exported="false" />
+        <activity
+            android:name=".activities.Login"
+            android:exported="false" />
+        <activity
+            android:name=".activities.patient.Main"
+            android:exported="false" />
+        <activity
+            android:name=".Splash"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

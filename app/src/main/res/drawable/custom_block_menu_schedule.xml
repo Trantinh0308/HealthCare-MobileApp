@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/colorButtonNormal">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF"/> <!-- Màu nền -->
+            <corners android:radius="9dp"/> <!-- Bo góc -->
+            <stroke
+                android:width="0.9dp"
+                android:color="#E2E7F8"/> <!-- #E7EBF8 -->
+        </shape>
+    </item>
+</ripple>

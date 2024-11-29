@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="14dp"
+        android:background="@drawable/custom_top_form_menu_orther"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/btn_library"
+            android:clickable="true"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thư viện"
+                android:textSize="17sp"
+                android:textColor="@color/text_Color"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_camera"
+            android:layout_below="@id/btn_library"
+            android:clickable="true"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chụp ảnh"
+                android:textSize="17sp"
+                android:textColor="@color/text_Color"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_close"
+            android:layout_below="@id/btn_camera"
+            android:clickable="true"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đóng"
+                android:textSize="17sp"
+                android:textColor="@color/text_Color"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

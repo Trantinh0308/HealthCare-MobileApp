@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.patient.Calendar_Online">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/mainColor"
+            android:paddingEnd="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingStart="7dp"
+            android:id="@+id/toolbar">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chon thời gian khám"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" />
+
+            <ImageButton
+                android:layout_width="32dp"
+                android:layout_height="25dp"
+                android:src="@drawable/icon_back"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/white"
+                android:layout_centerVertical="true"
+                android:id="@+id/back_btn" />
+        </RelativeLayout>
+    </RelativeLayout>
+    
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_below="@id/top_layout"
+        android:layout_above="@id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/block_top"
+                android:paddingTop="17dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/name_doctor"
+                    android:text="Chu Thi Minh"
+                    android:textSize="18sp"
+                    android:textColor="@color/text_Color"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/text_title"
+                    android:layout_below="@id/name_doctor"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="17sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lịch tư vấn trực tuyến"
+                    android:textColor="@color/text_Color"
+                    android:layout_marginTop="10dp"/>
+
+                <RelativeLayout
+                    android:id="@+id/block_listDate"
+                    android:layout_below="@+id/text_title"
+                    android:layout_marginTop="12dp"
+                    android:paddingBottom="7dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/btnPrev"
+                        android:clickable="true"
+                        android:layout_width="30dp"
+                        android:layout_height="60dp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/prev"/>
+                    </RelativeLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/list_date"
+                        android:layout_toEndOf="@id/btnPrev"
+                        android:layout_toStartOf="@id/btnNext"
+                        android:nestedScrollingEnabled="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <RelativeLayout
+                        android:id="@+id/btnNext"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="30dp"
+                        android:layout_height="60dp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/icon_right"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_below="@id/block_top"
+                android:background="@drawable/custom_button"
+                android:backgroundTint="#DADFFB"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="25dp"
+                android:paddingBottom="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/block_morning"
+                    android:padding="13dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:id="@+id/block_time_morning"
+                        android:paddingStart="7dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/text_morning"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Buổi sáng"
+                            android:textSize="16sp"
+                            android:textColor="@color/text_Color"
+                            android:textStyle="bold"/>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/list_time_morning"
+                            android:layout_below="@id/text_morning"
+                            android:nestedScrollingEnabled="false"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/block_afternoon"
+                    android:layout_below="@id/block_morning"
+                    android:layout_marginTop="10dp"
+                    android:padding="13dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:id="@+id/block_time_afternoon"
+                        android:paddingStart="7dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/text_afternoon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Buổi chiều"
+                            android:textSize="16sp"
+                            android:textColor="@color/text_Color"
+                            android:textStyle="bold"/>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/list_time_afternoon"
+                            android:layout_below="@id/text_afternoon"
+                            android:layout_marginTop="10dp"
+                            android:nestedScrollingEnabled="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/block_night"
+                    android:layout_below="@id/block_afternoon"
+                    android:layout_marginTop="10dp"
+                    android:padding="13dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:id="@+id/block_time_night"
+                        android:paddingStart="7dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/text_night"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Buổi tối"
+                            android:textSize="16sp"
+                            android:textColor="@color/text_Color"
+                            android:textStyle="bold"/>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/list_time_night"
+                            android:layout_below="@id/text_night"
+                            android:layout_marginTop="10dp"
+                            android:nestedScrollingEnabled="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/bottom_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:id="@+id/line_bottom"
+            android:layout_width="match_parent"
+            android:background="#E8EDFA"
+            android:layout_height="0.9dp"/>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/block_enter"
+            android:layout_below="@id/line_bottom"
+            app:cardElevation="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="77dp">
+            <RelativeLayout
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/btn_enter"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/custom_button">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true">
+
+                        <TextView
+                            android:id="@+id/choose"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="5dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Xác nhận"
+                            android:textColor="@color/white"
+                            android:textSize="19sp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</RelativeLayout>
