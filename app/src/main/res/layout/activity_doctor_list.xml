@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.patient.DoctorList">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/top_layout"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:background="@color/mainColor"
+            android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/upper_part"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:layout_width="32dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/icon_back"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="@color/white"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/back_btn" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bác sĩ"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/white"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/block_search"
+                android:layout_below="@id/upper_part"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0.7dp"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:padding="3.5dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/search"
+                        android:background="@drawable/edit_text_book"
+                        android:paddingStart="15dp"
+                        android:textSize="15sp"
+                        android:hint="Chuyên khoa"
+                        android:backgroundTint="#EDEDED"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <RelativeLayout
+                        android:id="@+id/btnSearch"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/search_drug"
+                            android:layout_centerVertical="true"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/body"
+            android:layout_below="@id/top_layout"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="6dp"
+            android:background="#ECECEC"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/doctorList"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ProgressBar
+                android:id="@+id/loading"
+                android:layout_width="25dp"
+                android:layout_height="24dp"
+                android:layout_centerInParent="true" />
+            <RelativeLayout
+                android:id="@+id/notice"
+                android:visibility="gone"
+                android:background="@drawable/custom_button"
+                android:backgroundTint="#FFF3DE"
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#FFA000"
+                    android:text="Không tìm thấy bác sĩ"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

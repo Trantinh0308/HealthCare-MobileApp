@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.doctor.AppointmentDetailResult">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:background="@color/mainColor"
+        android:paddingEnd="15dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="7dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kết quả khám"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="25dp"
+            android:src="@drawable/icon_back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="@color/white"
+            android:layout_centerVertical="true"
+            android:id="@+id/back_btn" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView_body"
+        android:layout_below="@id/top_layout"
+        android:layout_above="@id/line_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/body"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/block_symptom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:background="@color/white">
+                <TextView
+                    android:id="@+id/textSymptom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Triệu chứng"
+                    android:textColor="@color/text_Color"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/symptom"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_below="@id/textSymptom"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/edit_text_book"
+                    android:gravity="top"
+                    android:hint="Nhập triệu chứng..."
+                    android:paddingStart="8dp"
+                    android:paddingTop="5dp"
+                    android:textColorHint="@color/text_Color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/block_diagnose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:paddingTop="5dp"
+                android:background="@color/white"
+                android:layout_below="@id/block_symptom">
+                <TextView
+                    android:id="@+id/textDiagnose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chuẩn đoán"
+                    android:textColor="@color/text_Color"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/diagnose"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_below="@id/textDiagnose"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/edit_text_book"
+                    android:gravity="top"
+                    android:hint="Nhập chuẩn đoán..."
+                    android:paddingStart="8dp"
+                    android:paddingTop="5dp"
+                    android:textColorHint="@color/text_Color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/block_recommend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:paddingTop="5dp"
+                android:background="@color/white"
+                android:layout_below="@id/block_diagnose">
+                <TextView
+                    android:id="@+id/textRecommend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Khuyến nghị điều trị"
+                    android:textColor="@color/text_Color"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/recommend"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_below="@id/textRecommend"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/edit_text_book"
+                    android:gravity="top"
+                    android:hint="Nhập khuyến nghị..."
+                    android:paddingStart="8dp"
+                    android:paddingTop="5dp"
+                    android:textColorHint="@color/text_Color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/block_time"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/block_recommend"
+                android:background="@drawable/custom_block_menu_schedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/top_block_schedule_drug"
+                    android:clickable="true"
+                    android:background="@drawable/custom_top_block"
+                    android:backgroundTint="#ECFBF5"
+                    android:paddingStart="2dp"
+                    android:paddingEnd="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đơn thuốc:"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_Color"
+                        android:textSize="16sp"
+                        android:layout_centerVertical="true"/>
+                    <ImageView
+                        android:id="@+id/btn_add_drug"
+                        android:background="@drawable/add"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"/>
+                </RelativeLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list_drug"
+                    android:layout_below="@id/top_block_schedule_drug"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/switch_check"
+                android:layout_width="match_parent"
+                android:layout_marginTop="45dp"
+                android:layout_height="38dp"
+                android:paddingEnd="5dp"
+                android:layout_below="@id/block_time">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/text_Color"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:text="Tái khám" />
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/reExamination_Switch"
+                    android:layout_width="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:checked="false"
+                    app:track="@drawable/custom_track"
+                    android:thumb="@drawable/custom_thumb"
+                    android:layout_height="50dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/block_date"
+                android:visibility="gone"
+                android:layout_below="@id/switch_check"
+                android:clickable="true"
+                android:background="@drawable/custom_block_menu_schedule"
+                android:layout_marginTop="12dp"
+                android:paddingEnd="18dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image_calendar"
+                    android:layout_marginStart="12dp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/add_event"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"/>
+
+                <RelativeLayout
+                    android:id="@+id/form_startDate"
+                    android:layout_width="wrap_content"
+                    android:paddingStart="7dp"
+                    android:paddingEnd="7dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_toEndOf="@id/image_calendar"
+                    android:background="@drawable/custom_home_form_weather"
+                    android:backgroundTint="#E9E9EA"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/date_reExamination"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_Color"
+                        android:text="--/--/----"/>
+                </RelativeLayout>
+                <ImageView
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/custom_right"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+    <View
+        android:id="@+id/line_bottom"
+        android:layout_above="@id/block_enter"
+        android:layout_width="match_parent"
+        android:background="#E8EDFA"
+        android:layout_height="0.9dp"/>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/block_enter"
+        app:cardElevation="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="77dp">
+        <RelativeLayout
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:visibility="gone"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="25dp"
+                android:layout_height="25dp"/>
+            <RelativeLayout
+                android:id="@+id/btn_enter"
+                android:layout_width="match_parent"
+                android:background="@drawable/custom_button"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_height="50dp">
+                <TextView
+                    android:id="@+id/btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lưu kết quả"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"/>
+                <ProgressBar
+                    android:id="@+id/progress_save"
+                    android:visibility="gone"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

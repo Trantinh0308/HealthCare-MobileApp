@@ -131,7 +131,7 @@
             <RelativeLayout
                 android:id="@+id/top_block_time"
                 android:clickable="true"
-                android:background="@drawable/custom_block_detail_time"
+                android:background="@drawable/custom_top_block"
                 android:backgroundTint="#ECFBF5"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"

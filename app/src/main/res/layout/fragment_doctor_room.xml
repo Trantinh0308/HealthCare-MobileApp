@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.doctor.DoctorRoom">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp"
+        android:background="@color/mainColor"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phòng chờ khám"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+        <RelativeLayout
+            android:id="@+id/block_room"
+            android:clickable="true"
+            android:layout_alignParentEnd="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/icon_home"
+            android:backgroundTint="@color/white"
+            android:layout_width="28dp"
+            android:layout_height="28dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/block_waiting"
+        android:layout_below="@id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_waiting"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,18 +1,27 @@
 package com.example.healthcare.utils;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 
-import com.example.healthcare.models.Doctor;
+import com.example.healthcare.models.OnlineDoctor;
+import com.example.healthcare.models.OnlineAppointment;
+import com.example.healthcare.models.OnlinePrescription;
 import com.example.healthcare.models.Schedule;
+import com.example.healthcare.models.User;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -44,7 +53,7 @@ public class AndroidUtil {
         return schedule;
     }
 
-    public static void passDoctorAsIntent(Intent intent, Doctor model){
+    public static void passOnlineDoctorAsIntent(Intent intent, OnlineDoctor model){
         intent.putExtra("doctorId",model.getDoctorId());
         intent.putExtra("fullName",model.getFullName());
         intent.putExtra("gender",model.getGender());
@@ -56,12 +65,13 @@ public class AndroidUtil {
         intent.putExtra("workPlace",model.getWorkPlace());
         intent.putExtra("biography",model.getBiography());
         intent.putExtra("price",model.getPrice());
+        intent.putExtra("room",model.getRoom());
         intent.putExtra("appointment",model.getAppointment());
         intent.putExtra("image",model.getImageCode());
     }
 
-    public static Doctor getDoctorFromIntent(Intent intent){
-        Doctor doctor = new Doctor();
+    public static OnlineDoctor getOnlineDoctorFromIntent(Intent intent){
+        OnlineDoctor doctor = new OnlineDoctor();
         doctor.setDoctorId(intent.getStringExtra("doctorId"));
         doctor.setFullName(intent.getStringExtra("fullName"));
         doctor.setGender(intent.getStringExtra("gender"));
@@ -73,14 +83,73 @@ public class AndroidUtil {
         doctor.setWorkPlace(intent.getStringExtra("workPlace"));
         doctor.setBiography(intent.getStringExtra("biography"));
         doctor.setPrice(intent.getIntExtra("price",100000));
+        doctor.setRoom(intent.getStringExtra("room"));
         doctor.setImageCode(intent.getStringExtra("image"));
         doctor.setAppointment(intent.getIntExtra("appointment",0));
         return doctor;
     }
 
+    public static void passUserAsIntent(Intent intent, User model){
+        intent.putExtra("userId",model.getUserId());
+        intent.putExtra("fullNameUser",model.getFullName());
+        intent.putExtra("genderUser",model.getGender());
+        intent.putExtra("phoneNumberUser",model.getPhoneNumber());
+        intent.putExtra("addressUser",model.getAddress());
+        intent.putExtra("birthUser",model.getBirth());
+    }
+    public static User getUserFromIntent(Intent intent){
+        User user = new User();
+        user.setUserId(intent.getStringExtra("userId"));
+        user.setFullName(intent.getStringExtra("fullNameUser"));
+        user.setGender(intent.getStringExtra("genderUser"));
+        user.setPhoneNumber(intent.getStringExtra("phoneNumberUser"));
+        user.setAddress(intent.getStringExtra("addressUser"));
+        user.setBirth(intent.getStringExtra("birthUser"));
+        return user;
+    }
+    public static void passOnlineAppointmentAsIntent(Intent intent, OnlineAppointment model){
+        intent.putExtra("bookDate",model.getBookDate());
+        intent.putExtra("appointmentDate",model.getAppointmentDate());
+        intent.putExtra("time",model.getTime());
+        intent.putExtra("symptom",model.getSymptom());
+        intent.putExtra("stateAppointment",model.getStateAppointment());
+    }
+    public static OnlineAppointment getOnlineAppointmentFromIntent(Intent intent){
+        OnlineAppointment onlineAppointment = new OnlineAppointment();
+        onlineAppointment.setBookDate(intent.getStringExtra("bookDate"));
+        onlineAppointment.setAppointmentDate(intent.getStringExtra("appointmentDate"));
+        onlineAppointment.setTime(intent.getStringExtra("time"));
+        onlineAppointment.setSymptom(intent.getStringExtra("symptom"));
+        onlineAppointment.setStateAppointment(intent.getIntExtra("stateAppointment",0));
+        return onlineAppointment;
+    }
+    public static void passOnlinePrescriptionAsIntent(Intent intent, OnlinePrescription model){
+        intent.putExtra("drugName",model.getDrugName());
+        intent.putExtra("image",model.getImage());
+        intent.putExtra("unit",model.getUnit());
+        intent.putExtra("order",model.getOrder());
+        intent.putExtra("startDate",model.getStartDate());
+        intent.putExtra("endDate",model.getEndDate());
+        intent.putExtra("frequency",model.getFrequency());
+        intent.putExtra("note",model.getNote());
+        intent.putExtra("remind",model.getRemind());
+    }
+    public static OnlinePrescription getOnlinePrescriptionFromIntent(Intent intent){
+        OnlinePrescription onlinePrescription = new OnlinePrescription();
+        onlinePrescription.setDrugName(intent.getStringExtra("drugName"));
+        onlinePrescription.setImage(intent.getStringExtra("image"));
+        onlinePrescription.setUnit(intent.getStringExtra("unit"));
+        onlinePrescription.setOrder(intent.getIntExtra("order",1));
+        onlinePrescription.setStartDate(intent.getStringExtra("startDate"));
+        onlinePrescription.setEndDate(intent.getStringExtra("endDate"));
+        onlinePrescription.setFrequency(intent.getStringExtra("frequency"));
+        onlinePrescription.setNote(intent.getStringExtra("note"));
+        onlinePrescription.setRemind(intent.getBooleanExtra("remind",false));
+        return onlinePrescription;
+    }
     public static String formatPrice(int price){
         DecimalFormat decimalFormat = new DecimalFormat("#,###");
-        return decimalFormat.format(price);
+        return decimalFormat.format(price)+" đ";
     }
     public static String currentTime (){
         Calendar calendar = Calendar.getInstance();
@@ -191,6 +260,242 @@ public class AndroidUtil {
         } catch (ParseException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+    public static int getNumberInRange(int min, int max) {
+        Random random = new Random();
+        return random.nextInt((max - min) + 1) + min;
+    }
+    public static float getFloatRange(float min, float max) {
+        Random random = new Random();
+        float randomValue = min + (max - min) * random.nextFloat();
+        return (float) (Math.round(randomValue * 10.0) / 10.0);
+    }
+    public static long[] getDayBoundaries() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+
+        long startOfDayMillis = calendar.getTimeInMillis();
+
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+        calendar.set(Calendar.MILLISECOND, 999);
+
+        long endOfDayMillis = calendar.getTimeInMillis();
+
+        return new long[] { startOfDayMillis, endOfDayMillis };
+    }
+
+    public static long[] getWeekBoundaries() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_WEEK, calendar.getFirstDayOfWeek());
+
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+
+        long startOfWeekMillis = calendar.getTimeInMillis();
+
+        calendar.add(Calendar.DATE, 6);
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+        calendar.set(Calendar.MILLISECOND, 999);
+
+        long endOfWeekMillis = calendar.getTimeInMillis();
+
+        return new long[] { startOfWeekMillis, endOfWeekMillis };
+    }
+
+    public static long[] getMonthBoundaries() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+
+        long startOfMonthMillis = calendar.getTimeInMillis();
+
+        calendar.add(Calendar.MONTH, 1);
+        calendar.add(Calendar.DATE, -1);
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+        calendar.set(Calendar.MILLISECOND, 999);
+
+        long endOfMonthMillis = calendar.getTimeInMillis();
+
+        return new long[] { startOfMonthMillis, endOfMonthMillis };
+    }
+
+    public static long[] getYearBoundaries() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.MONTH, Calendar.JANUARY);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+
+        long startOfYearMillis = calendar.getTimeInMillis();
+
+        calendar.add(Calendar.YEAR, 1);
+        calendar.add(Calendar.DATE, -1);
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+        calendar.set(Calendar.MILLISECOND, 999);
+
+        long endOfYearMillis = calendar.getTimeInMillis();
+
+        return new long[] { startOfYearMillis, endOfYearMillis };
+    }
+    public static long[] getTimestampListByPosition(int position){
+        if (position == 0){
+            return AndroidUtil.getDayBoundaries();
+        }
+        else if (position == 1){
+            return AndroidUtil.getWeekBoundaries();
+        }
+        else if (position == 2){
+            return AndroidUtil.getMonthBoundaries();
+        }
+        else return AndroidUtil.getYearBoundaries();
+    }
+
+    public static long calculateTimestampByCurrentPosition(long currentTimestamp,int position, int number){
+        long timestamp24h = 86399999;
+        if (position == 0){
+            if (number == -1) return (currentTimestamp - timestamp24h);
+            else return (currentTimestamp + timestamp24h);
+        }
+        else if (position == 1){
+            if (number == -1) return (currentTimestamp - timestamp24h*7);
+            else return (currentTimestamp + timestamp24h*7);
+        }
+        else if (position == 2){
+            if (number == -1) return (currentTimestamp - timestamp24h*30);
+            else return (currentTimestamp + timestamp24h*30);
+        }
+        else {
+            if (number == -1) return (currentTimestamp - timestamp24h*365);
+            else return (currentTimestamp + timestamp24h*365);
+        }
+    }
+
+    public static String getTimeFrame(int position) {
+        Calendar calendar = Calendar.getInstance();
+        Date today = calendar.getTime();
+
+        SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE, dd MMMM");
+        SimpleDateFormat monthYearFormat = new SimpleDateFormat("MMMM/yyyy");
+        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
+
+        switch (position) {
+            case 0:
+                return dayFormat.format(today);
+
+            case 1:
+                calendar.set(Calendar.DAY_OF_WEEK, calendar.getFirstDayOfWeek());
+                Date startOfWeek = calendar.getTime();
+                calendar.add(Calendar.DAY_OF_WEEK, 6);
+                Date endOfWeek = calendar.getTime();
+
+                SimpleDateFormat weekFormat = new SimpleDateFormat("dd/MM");
+                return "Ngày " + weekFormat.format(startOfWeek) + " - Ngày " + weekFormat.format(endOfWeek);
+
+            case 2:
+                String monthYearResult = monthYearFormat.format(today);
+                return monthYearResult.substring(0, 1).toUpperCase() + monthYearResult.substring(1);
+
+            case 3:
+                return "Năm " + yearFormat.format(today);
+
+            default:
+                return "";
+        }
+    }
+    public static void sharedPreferences (Context context, String key, String value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(key, value);
+        editor.apply();
+    }
+
+    public static void removeSharedPreferences (Context context, String key) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove(key);
+        editor.apply();
+    }
+    public static String getSharedPreferences(Context context, String key) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(key, null);
+    }
+
+    public static String normalizeString(String input) {
+        String[] parts = input.split("\\s+");
+        StringBuilder normalizedString = new StringBuilder();
+
+        for (String word : parts) {
+            if (!word.matches(".*[0-9%].*")) {
+                String normalizedWord = word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+                normalizedString.append(normalizedWord).append(" ");
+            }
+        }
+        return normalizedString.toString().trim();
+    }
+
+    public static List<String> getDaysAndWeekdays(int month, int year) {
+        List<String> result = new ArrayList<>();
+        LocalDate today = LocalDate.now();
+        YearMonth yearMonth = YearMonth.of(year, month);
+        int daysInMonth = yearMonth.lengthOfMonth();
+        for (int day = 1; day <= daysInMonth; day++) {
+            LocalDate date = LocalDate.of(year, month, day);
+            if (date.isBefore(today)) {
+                continue;
+            }
+
+            DayOfWeek dayOfWeek = date.getDayOfWeek();
+            String dayName = getDayName(dayOfWeek);
+
+            String formattedDay = (day < 10) ? "0" + day : String.valueOf(day);
+            if (!dayName.contains("CN")){
+                result.add("Thứ " + dayName + "," + formattedDay );
+            }
+            else result.add("CN" + "," + formattedDay);
+        }
+
+        return result;
+    }
+
+    private static String getDayName(DayOfWeek dayOfWeek) {
+        switch (dayOfWeek) {
+            case MONDAY:
+                return "2";
+            case TUESDAY:
+                return "3";
+            case WEDNESDAY:
+                return "4";
+            case THURSDAY:
+                return "5";
+            case FRIDAY:
+                return "6";
+            case SATURDAY:
+                return "7";
+            case SUNDAY:
+                return "CN";
+            default:
+                return "";
         }
     }
 }

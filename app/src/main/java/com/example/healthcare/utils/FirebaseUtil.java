@@ -38,6 +38,9 @@ public class FirebaseUtil {
     public static DocumentReference currentUserDetailsById() {
         return FirebaseFirestore.getInstance().collection("user").document(currentUserId());
     }
+    public static DocumentReference getUserDetailsById(String userId) {
+        return FirebaseFirestore.getInstance().collection("user").document(userId);
+    }
     public static CollectionReference scheduleAllCollection() {
         return FirebaseFirestore.getInstance().collection("schedule");
     }
@@ -47,6 +50,9 @@ public class FirebaseUtil {
     public static CollectionReference checkScheduleCollection() {
         return FirebaseFirestore.getInstance().collection("checkSchedule");
     }
+    public static CollectionReference reAppointmentCollection() {
+        return FirebaseFirestore.getInstance().collection("ReAppointment");
+    }
     public static DocumentReference imageCollectionById(String documentId) {
         return FirebaseFirestore.getInstance().collection("drugImage").document(documentId);
     }
@@ -54,22 +60,30 @@ public class FirebaseUtil {
     public static DocumentReference repeatCollectionById(String documentId) {
         return FirebaseFirestore.getInstance().collection("repeat").document(documentId);
     }
-    public static CollectionReference allDoctorCollection() {
-        return FirebaseFirestore.getInstance().collection("doctor");
+    public static CollectionReference allOnlineDoctorCollection() {
+        return FirebaseFirestore.getInstance().collection("onlineDoctor");
+    }
+    public static CollectionReference allEvaluateCollection() {
+        return FirebaseFirestore.getInstance().collection("evaluate");
     }
     public static DocumentReference currentEmployeeDetails() {
         return FirebaseFirestore.getInstance().collection("employee").document(currentUserId());
     }
 
-    public static DocumentReference getDoctorDetailsById(String doctorId) {
-        return FirebaseFirestore.getInstance().collection("doctor").document(doctorId);
+
+    public static DocumentReference getOnlineDoctorDetailsById(String doctorId) {
+        return FirebaseFirestore.getInstance().collection("onlineDoctor").document(doctorId);
     }
 
-    public static DocumentReference getRoomOnlineByDoctorId(String doctorId) {
-        return FirebaseFirestore.getInstance().collection("online_appointment").document(doctorId);
+    public static CollectionReference allOnlineAppointment() {
+        return FirebaseFirestore.getInstance().collection("onlineAppointment");
     }
-    public static CollectionReference allOnlineAppointmentByDoctorId(String doctorId) {
-        return getRoomOnlineByDoctorId(doctorId).collection("appointment");
+    public static DocumentReference onlineAppointment(String appointmentId) {
+        return FirebaseFirestore.getInstance().collection("onlineAppointment").document(appointmentId);
+    }
+
+    public static DocumentReference onlineAppointmentResult(String appointmentId) {
+        return FirebaseFirestore.getInstance().collection("appointmentResult").document(appointmentId);
     }
 
     //    public static DocumentReference statusUser(){
@@ -121,6 +135,9 @@ public class FirebaseUtil {
     public static CollectionReference allRoleCollectionReference() {
         return FirebaseFirestore.getInstance().collection("role");
     }
+    public static DocumentReference getRoleCollectionByUserId(String userId) {
+        return FirebaseFirestore.getInstance().collection("role").document(userId);
+    }
 
     public static CollectionReference allEmployeeCollectionReference() {
         return FirebaseFirestore.getInstance().collection("employee");
@@ -133,10 +150,6 @@ public class FirebaseUtil {
     // thêm một đối tượng appointment vào document của collection appointment với id được lấy tự động
     public static CollectionReference getAppointmentCollectionReference() {
         return FirebaseFirestore.getInstance().collection("appointment");
-    }
-
-    public static DocumentReference getAppointmentDetailsById(String appointmentId) {
-        return FirebaseFirestore.getInstance().collection("appointment").document(appointmentId);
     }
 
     public static DocumentReference getChatroomReference(String chatroomId) {
@@ -191,6 +204,9 @@ public class FirebaseUtil {
         return FirebaseFirestore.getInstance().collection("relative");
     }
 
+    public static DocumentReference heartIndexCollectionByUserId(String userId) {
+        return FirebaseFirestore.getInstance().collection("heartIndex").document(userId);
+    }
 
 //    public static void sendMessageNotificationtoEmployeeTokenId(String requestCode, String message, String tokenId) {
 //        FirebaseUtil.currentUserDetails().get().addOnCompleteListener(task -> {

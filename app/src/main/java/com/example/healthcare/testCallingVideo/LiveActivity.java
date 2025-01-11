@@ -20,25 +20,26 @@ import java.util.Collections;
 
 public class LiveActivity extends AppCompatActivity {
     TextView userIdEditText;
-    ZegoSendCallInvitationButton  videoCallBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live);
         userIdEditText = findViewById(R.id.user_id);
-        videoCallBtn = findViewById(R.id.btnCallVideo);
-        videoCallBtn.setIsVideoCall(true);
-        videoCallBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String targetUserId = userIdEditText.getText().toString().trim();
-                setVideoCall(targetUserId);
-            }
-        });
+
+        String testId = "long";
+        startService(testId);
     }
 
-    void setVideoCall(String targetUserID){
-        videoCallBtn.setIsVideoCall(true);
-        videoCallBtn.setInvitees(Collections.singletonList(new ZegoUIKitUser(targetUserID)));
+
+    void startService(String userId){
+        String userName = userId;
+        ZegoUIKitPrebuiltCallInvitationConfig callInvitationConfig = new ZegoUIKitPrebuiltCallInvitationConfig();
+        ZegoUIKitPrebuiltCallService.init(getApplication(), Contants.appid, Contants.appSign, userId, userName,callInvitationConfig);
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ZegoUIKitPrebuiltCallService.unInit();
     }
 }

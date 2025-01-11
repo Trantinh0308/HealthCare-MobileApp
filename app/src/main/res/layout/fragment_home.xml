@@ -197,7 +197,7 @@
                 android:layout_marginEnd="10dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:paddingTop="2dp"
+                android:paddingTop="1dp"
                 android:paddingBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -207,7 +207,7 @@
                     android:background="@drawable/custom_button"
                     android:backgroundTint="@color/white"
                     android:layout_width="80dp"
-                    android:layout_height="90dp">
+                    android:layout_height="92dp">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -236,7 +236,7 @@
                             android:layout_below="@id/block_icon_alarm"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="4dp"
-                            android:textSize="12sp"
+                            android:textSize="12.5sp"
                             android:textColor="#012537"
                             android:fontFamily="sans-serif-medium"
                             android:text="Nhắc nhở" />
@@ -254,7 +254,7 @@
                         android:background="@drawable/custom_button"
                         android:backgroundTint="@color/white"
                         android:layout_width="80dp"
-                        android:layout_height="90dp">
+                        android:layout_height="92dp">
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
@@ -283,7 +283,7 @@
                                 android:layout_below="@id/block_icon_booking"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="4dp"
-                                android:textSize="12sp"
+                                android:textSize="12.5sp"
                                 android:textColor="#012537"
                                 android:fontFamily="sans-serif-medium"
                                 android:text="Đặt lịch" />
@@ -298,8 +298,8 @@
                         android:clickable="true"
                         android:background="@drawable/custom_button"
                         android:backgroundTint="@color/white"
-                        android:layout_width="80dp"
-                        android:layout_height="90dp">
+                        android:layout_width="82dp"
+                        android:layout_height="92dp">
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
@@ -311,6 +311,7 @@
                                 android:id="@+id/block_icon_record"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
                                 android:background="@drawable/custom_shadow_menu_home">
 
                                 <ImageView
@@ -328,14 +329,12 @@
                                 android:layout_below="@id/block_icon_record"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="4dp"
-                                android:textSize="12sp"
+                                android:textSize="12.5sp"
                                 android:textColor="#012537"
                                 android:fontFamily="sans-serif-medium"
-                                android:text="Kết quả khám" />
+                                android:text="Hồ sơ bệnh án" />
                         </RelativeLayout>
-
                     </RelativeLayout>
-
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -345,7 +344,7 @@
                     android:background="@drawable/custom_button"
                     android:backgroundTint="@color/white"
                     android:layout_width="80dp"
-                    android:layout_height="90dp">
+                    android:layout_height="92dp">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -374,10 +373,10 @@
                             android:layout_below="@id/block_icon_health_care"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="4dp"
-                            android:textSize="12sp"
+                            android:textSize="12.5sp"
                             android:textColor="#012537"
                             android:fontFamily="sans-serif-medium"
-                            android:text="Sức khỏe" />
+                            android:text="Dịch vụ" />
                     </RelativeLayout>
                 </RelativeLayout>
             </RelativeLayout>
@@ -401,6 +400,31 @@
                     android:textColor="@color/text_Color"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
+
+                <RelativeLayout
+                    android:id="@+id/btnDoctorList"
+                    android:clickable="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Xem thêm"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/text"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="3dp"
+                        android:background="@drawable/custom_right"/>
+                </RelativeLayout>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/list_doctor"
                     android:layout_below="@+id/title"

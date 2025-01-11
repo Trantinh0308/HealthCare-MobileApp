@@ -9,12 +9,15 @@ android {
 
     defaultConfig {
         applicationId = "com.example.healthcare"
-        minSdk = 28
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters.addAll(listOf("armeabi-v7a", "x86", "armeabi"))
+        }
     }
 
     buildTypes {
@@ -26,6 +29,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -38,6 +42,11 @@ dependencies {
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.2.0")
     implementation("com.google.firebase:firebase-auth:23.1.0")
+    implementation(fileTree(mapOf(
+        "dir" to "C:\\Users\\trant\\Desktop\\zalolib",
+        "include" to listOf("*.aar", "*.jar"),
+        "exclude" to listOf("")
+    )))
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
@@ -56,7 +65,7 @@ dependencies {
     implementation("com.google.firebase:firebase-messaging:24.0.3")
     implementation("com.google.android.gms:play-services-auth:21.2.0")
     implementation ("com.google.android.gms:play-services-fitness:21.2.0")
-
+    implementation ("com.google.mlkit:face-detection:16.1.7")
 
     implementation ("androidx.camera:camera-core:1.4.0")
     // CameraX Camera2 (for backward compatibility with Camera2 API)
@@ -65,4 +74,9 @@ dependencies {
     implementation ("androidx.camera:camera-lifecycle:1.4.0")
     implementation ("com.google.guava:guava:30.1-android")
     implementation ("androidx.camera:camera-view:1.0.0-alpha31")
+    implementation ("androidx.biometric:biometric:1.2.0-alpha05")
+    implementation("commons-codec:commons-codec:1.14")
+    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation ("com.google.zxing:core:3.4.1")
+    implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
 }

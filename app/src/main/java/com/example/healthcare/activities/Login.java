@@ -56,7 +56,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     FirebaseAuth mAuth;
     GoogleSignInClient googleSignInClient;
     int RC_SIGN_IN = 20;
-    Boolean checkInputEmail = false, checkInputPass = false;
     String tokenId;
 
     @Override
@@ -78,7 +77,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         dialog = new Dialog(this);
         initView();
         initOnclick();
@@ -179,9 +177,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         Role role = new Role();
         role.setUserId(userId);
         role.setIsRole(1);
-        FirebaseUtil.allRoleCollectionReference().add(role).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+        role.setCheckFace(false);
+        FirebaseUtil.getRoleCollectionByUserId(userId).set(role).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
-            public void onComplete(@NonNull Task<DocumentReference> task) {
+            public void onComplete(@NonNull Task<Void> task) {
                 Intent intent = new Intent(Login.this,Main.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);

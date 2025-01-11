@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.healthcare.R;
+import com.example.healthcare.activities.Login;
 import com.example.healthcare.activities.patient.Main;
 import com.example.healthcare.models.Token;
 import com.example.healthcare.utils.FirebaseUtil;
@@ -43,7 +44,7 @@ public class Menu extends Fragment implements View.OnClickListener {
     TextView userName, userGenderBirth;
     ImageView imageAccount;
     GoogleSignInClient googleSignInClient;
-    CardView btnLogout;
+    CardView btnLogout, btnLogin;
     String currentUserId = "";
 
     public Menu() {
@@ -58,7 +59,6 @@ public class Menu extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View itemView = inflater.inflate(R.layout.fragment_menu, container, false);
         currentUserId = FirebaseUtil.currentUserId();
         dialog = new Dialog(getContext());
@@ -67,11 +67,10 @@ public class Menu extends Fragment implements View.OnClickListener {
                 .requestEmail()
                 .build();
 
-        // Khởi tạo GoogleSignInClient
         googleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
         initView(itemView);
-//        setInforUser();
         setOnclick();
+        setBtnLoginAndLogout();
         return itemView;
     }
 
@@ -94,47 +93,45 @@ public class Menu extends Fragment implements View.OnClickListener {
 
     private void initView(View itemView) {
         btnLogout = itemView.findViewById(R.id.btn_logout);
+        btnLogin = itemView.findViewById(R.id.btn_login);
         userName = itemView.findViewById(R.id.fullName_user);
         userGenderBirth = itemView.findViewById(R.id.gender_birth);
         imageAccount = itemView.findViewById(R.id.image_account);
-        setbtnLogout();
+
     }
 
-    private void setbtnLogout() {
-        FirebaseUser curentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (curentUser == null) {
+    private void setBtnLoginAndLogout() {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser == null) {
             btnLogout.setVisibility(View.GONE);
+            btnLogin.setVisibility(View.VISIBLE);
+        }
+        else {
+            btnLogout.setVisibility(View.VISIBLE);
+            btnLogin.setVisibility(View.GONE);
         }
     }
 
-//    private void setInforUser() {
-//        FirebaseUtil.currentUserDetails().get().addOnSuccessListener(documentSnapshot -> {
-//            if (documentSnapshot.exists()) {
-//                UserModel userModel = documentSnapshot.toObject(UserModel.class);
-//                userName.setText(userModel.getFullName());
-//                userGenderBirth.setText(userModel.getGender() + " - " + userModel.getBirth());
-//            } else {
-//                Log.e("ERROR", "User not found");
-//            }
-//        });
-//    }
-
     private void setOnclick() {
         btnLogout.setOnClickListener(this);
+        btnLogin.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_logout) {
             showDialogLoadingLogout(Gravity.CENTER);
-//            SyncService.logout(getContext());
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     dialog.dismiss();
-                    sigout();
+                    sigOut();
                 }
             }, 2000);
+        }
+        if (v.getId() == R.id.btn_login){
+            Intent intent = new Intent(getActivity(), Login.class);
+            startActivity(intent);
         }
     }
 
@@ -158,7 +155,7 @@ public class Menu extends Fragment implements View.OnClickListener {
         dialog.show();
     }
 
-    private void sigout() {
+    private void sigOut() {
         getCurrentUserTokenId(new TokenUserFetchCallback() {
             @Override
             public void onTokenUserFetchComplete() {
@@ -185,8 +182,8 @@ public class Menu extends Fragment implements View.OnClickListener {
                 });
     }
 
-    private void removeTokenId(String curentUserId, String tokenId) {
-        Query query = FirebaseUtil.getTokenId().whereEqualTo("userId", curentUserId);
+    private void removeTokenId(String currentUserId, String tokenId) {
+        Query query = FirebaseUtil.getTokenId().whereEqualTo("userId", currentUserId);
         query.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 QuerySnapshot querySnapshot = task.getResult();

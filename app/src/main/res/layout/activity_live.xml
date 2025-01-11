@@ -16,10 +16,6 @@
             android:layout_centerHorizontal="true"
             android:layout_width="200dp"
             android:layout_height="50dp"/>
-        <com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
-            android:id="@+id/btnCallVideo"
-            android:layout_toEndOf="@id/user_id"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
+
     </RelativeLayout>
 </RelativeLayout>

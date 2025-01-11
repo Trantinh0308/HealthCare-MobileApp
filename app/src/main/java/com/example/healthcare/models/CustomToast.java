@@ -11,6 +11,10 @@ import com.example.healthcare.R;
 
 public class CustomToast {
     public static void showToast(Context context, String message, int duration) {
+        if (context == null || message == null || message.isEmpty()) {
+            return;
+        }
+
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.custom_toast, null);
 

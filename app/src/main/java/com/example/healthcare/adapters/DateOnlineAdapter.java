@@ -27,9 +27,9 @@ import java.util.regex.Pattern;
 public class DateOnlineAdapter extends RecyclerView.Adapter<DateOnlineAdapter.DateItemViewHolder>{
     private List<String> weekDays;
     public int selectedPosition = -1;
-    private DateAdapter.IDateViewHolder iDateHolder;
+    private IDateViewHolder iDateHolder;
 
-    public DateOnlineAdapter(List<String> weekDays, DateAdapter.IDateViewHolder iDateHolder) {
+    public DateOnlineAdapter(List<String> weekDays, IDateViewHolder iDateHolder) {
         this.weekDays = weekDays;
         this.iDateHolder = iDateHolder;
     }
@@ -74,27 +74,8 @@ public class DateOnlineAdapter extends RecyclerView.Adapter<DateOnlineAdapter.Da
         public void bind(String date, boolean isSelected) {
             String[] parts = date.split(",");
             if (parts.length == 2) {
-                String dateStr = parts[1].trim();
-
-                SimpleDateFormat inputFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
-                SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM", Locale.getDefault());
-                try {
-                    Date parsedDate = inputFormat.parse(dateStr);
-                    String formattedDate = outputFormat.format(parsedDate);
-                    textDateMonth.setText(formattedDate);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-
                 textDate.setText(parts[0].trim());
-            }
-            String dateFormat = AndroidUtil.formatDate(date);
-            // Đặt nền cho item
-            if (AndroidUtil.isDate2Greater(dateFormat,AndroidUtil.getCurrentDate())){
-                itemView.setEnabled(false);
-                textDate.setTextColor(ContextCompat.getColor(context,R.color.Red));
-                textDateMonth.setTextColor(ContextCompat.getColor(context,R.color.Red));
-                return;
+                textDateMonth.setText(parts[1].trim());
             }
             if (isSelected) {
                 itemView.setBackgroundResource(R.drawable.custom_calendar_choosed);

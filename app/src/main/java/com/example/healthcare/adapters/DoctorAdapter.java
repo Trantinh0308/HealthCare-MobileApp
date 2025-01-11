@@ -2,10 +2,8 @@ package com.example.healthcare.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,20 +13,19 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.healthcare.R;
-import com.example.healthcare.models.Doctor;
+import com.example.healthcare.models.OnlineDoctor;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
-public class DoctorAdapter extends FirestoreRecyclerAdapter<Doctor, DoctorAdapter.DoctorViewHolder> {
+public class DoctorAdapter extends FirestoreRecyclerAdapter<OnlineDoctor, DoctorAdapter.DoctorViewHolder> {
     Context context;
     private IDoctorViewHolder iViewHolder;
     private int selectedPosition = RecyclerView.NO_POSITION;
 
-    public DoctorAdapter(@NonNull FirestoreRecyclerOptions<Doctor> options, Context context, IDoctorViewHolder iDoctorViewHolder) {
+    public DoctorAdapter(@NonNull FirestoreRecyclerOptions<OnlineDoctor> options, Context context, IDoctorViewHolder iDoctorViewHolder) {
         super(options);
         this.context = context;
         this.iViewHolder = iDoctorViewHolder;
@@ -39,7 +36,7 @@ public class DoctorAdapter extends FirestoreRecyclerAdapter<Doctor, DoctorAdapte
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull DoctorViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Doctor model) {
+    protected void onBindViewHolder(@NonNull DoctorViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull OnlineDoctor model) {
         holder.textfullName.setText(model.getFullName());
         holder.textNumber.setText(String.valueOf(model.getAppointment()));
         holder.textLocation.setText(model.getWorkPlace());

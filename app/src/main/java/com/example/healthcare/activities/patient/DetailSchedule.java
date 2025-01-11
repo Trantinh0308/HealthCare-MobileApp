@@ -38,11 +38,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.healthcare.R;
+import com.example.healthcare.adapters.DateFrequencyAdapter;
+import com.example.healthcare.adapters.DateOnlineAdapter;
 import com.example.healthcare.adapters.ScheduleItemAdapter;
 import com.example.healthcare.models.CustomToast;
+import com.example.healthcare.models.OnlinePrescription;
 import com.example.healthcare.models.Schedule;
 import com.example.healthcare.models.ScheduleDetail;
 import com.example.healthcare.models.User;
+import com.example.healthcare.utils.AndroidUtil;
 import com.example.healthcare.utils.FirebaseUtil;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -62,16 +66,17 @@ public class DetailSchedule extends AppCompatActivity implements View.OnClickLis
     private static final int IMAGE_PERMISSION_CODE = 1;
     private static final int CAMERA_PERMISSION_CODE = 100;
     private static final int CAMERA_REQUEST_CODE = 101;
-    RecyclerView recyclerView;
+    RecyclerView recyclerView,recyclerViewDate;
     ProgressBar loadingSaveData;
     List<ScheduleDetail> scheduleDetailList;
+    List<Boolean> checkList;
     ScheduleItemAdapter scheduleItemAdapter;
+    DateFrequencyAdapter dateFrequencyAdapter;
     EditText editTextDrugName;
     TextView textStartDate, textEndDate,textViewFrequency,textDateSelected;
     ImageView drugImage, checkedOne, checkedTwo, checkedThree;
     RelativeLayout btnAddTime,blockStartDate,
             blockEndDate,blockFrequency,btnEnter, blockSelectDate,btnEnterDialog;
-    Spinner spinnerDay;
     DatePicker datePickerFreQuency;
     ImageView btnBack;
     String frequency = "",imageCode = "",scheduleId;
@@ -80,6 +85,10 @@ public class DetailSchedule extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_schedule);
+        checkList = new ArrayList<>();
+        for (int i = 0 ; i < 7 ; i++){
+            checkList.add(false);
+        }
         initView();
         scheduleId = UUID.randomUUID().toString();
         frequency = textViewFrequency.getText().toString().trim();
@@ -160,6 +169,7 @@ public class DetailSchedule extends AppCompatActivity implements View.OnClickLis
             showDialogDatePicker(textEndDate);
         }
         if (v.getId() == R.id.block_frequency){
+            frequency = textViewFrequency.getText().toString().trim();
             showDialogFrequency(Gravity.BOTTOM);
         }
         if (v.getId() == R.id.drug_image){
@@ -403,9 +413,10 @@ public class DetailSchedule extends AppCompatActivity implements View.OnClickLis
         checkedTwo = dialog.findViewById(R.id.checked_two);
         checkedThree = dialog.findViewById(R.id.check_three);
         blockSelectDate = dialog.findViewById(R.id.block_select_time);
-        spinnerDay = dialog.findViewById(R.id.day);
+        recyclerViewDate = dialog.findViewById(R.id.day);
         datePickerFreQuency = dialog.findViewById(R.id.datePicker_frequency);
 
+        setupDateFrequency();
         setChecked(textViewFrequency.getText().toString());
         setBackgroundDialogFrequency(textViewFrequency.getText().toString());
         btnDaily.setOnClickListener(new View.OnClickListener() {
@@ -425,7 +436,7 @@ public class DetailSchedule extends AppCompatActivity implements View.OnClickLis
                 frequency = "Ngày cố định trong tuần";
                 setChecked(frequency);
                 setBackgroundDialogFrequency(frequency);
-                setbtnEnter();
+                setBtnEnter();
             }
         });
 
@@ -440,26 +451,6 @@ public class DetailSchedule extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        spinnerDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItem = parent.getItemAtPosition(position).toString();
-                if (selectedItem.equals("Lựa chọn")){
-                    btnEnterDialog.setBackgroundResource(R.drawable.custom_button_enable);
-                    btnEnterDialog.setEnabled(false);
-                }
-                else {
-                    btnEnterDialog.setBackgroundResource(R.drawable.custom_button);
-                    btnEnterDialog.setEnabled(true);
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
         btnRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -470,6 +461,7 @@ public class DetailSchedule extends AppCompatActivity implements View.OnClickLis
         btnEnterDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!frequency.equals("Ngày cố định trong tuần"))resetCheckList();
                 textViewFrequency.setText(frequency);
                 getDetailFrequency(datePickerFreQuency);
                 dialog.dismiss();
@@ -478,8 +470,29 @@ public class DetailSchedule extends AppCompatActivity implements View.OnClickLis
         dialog.show();
     }
 
-    private void setbtnEnter() {
-        if (spinnerDay.getSelectedItem().toString().equals("Lựa chọn")){
+    private void setupDateFrequency() {
+        dateFrequencyAdapter  = new DateFrequencyAdapter(checkList,new DateFrequencyAdapter.IDateViewHolder() {
+            @Override
+            public void onClickItem(int position) {
+                if (dateFrequencyAdapter.checkChoose()){
+                    btnEnterDialog.setBackgroundResource(R.drawable.custom_button);
+                    btnEnterDialog.setEnabled(true);
+                }
+                else {
+                    btnEnterDialog.setBackgroundResource(R.drawable.custom_button_enable);
+                    btnEnterDialog.setEnabled(false);
+                }
+            }
+        });
+        for (int i = 0 ; i < checkList.size() ; i ++){
+            if (checkList.get(i))dateFrequencyAdapter.notifyItemChanged(i);
+        }
+        recyclerViewDate.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerViewDate.setAdapter(dateFrequencyAdapter);
+    }
+
+    private void setBtnEnter() {
+        if (!dateFrequencyAdapter.checkChoose()){
             btnEnterDialog.setBackgroundResource(R.drawable.custom_button_enable);
             btnEnterDialog.setEnabled(false);
         }
@@ -495,7 +508,7 @@ public class DetailSchedule extends AppCompatActivity implements View.OnClickLis
         }
         else {
             if (frequency.equals("Ngày cố định trong tuần")){
-                textDateSelected.setText(spinnerDay.getSelectedItem().toString());
+                textDateSelected.setText(dateFrequencyAdapter.getDateChoose());
             }
             else if (frequency.equals("Ngày cố định")){
                 getDate(datePickerFreQuency,textDateSelected);
@@ -680,13 +693,18 @@ public class DetailSchedule extends AppCompatActivity implements View.OnClickLis
         }
         else if (frequency.equals("Ngày cố định trong tuần")){
             blockSelectDate.setVisibility(View.VISIBLE);
-            spinnerDay.setVisibility(View.VISIBLE);
+            recyclerViewDate.setVisibility(View.VISIBLE);
             datePickerFreQuency.setVisibility(View.GONE);
         }
         else {
             blockSelectDate.setVisibility(View.VISIBLE);
-            spinnerDay.setVisibility(View.GONE);
+            recyclerViewDate.setVisibility(View.GONE);
             datePickerFreQuency.setVisibility(View.VISIBLE);
+        }
+    }
+    private void resetCheckList(){
+        for (int i = 0 ; i < 7 ; i++){
+            checkList.set(i,false);
         }
     }
 }

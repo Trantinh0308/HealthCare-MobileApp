@@ -21,6 +21,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.healthcare.R;
 import com.example.healthcare.adapters.DateAdapter;
@@ -32,6 +33,7 @@ import com.example.healthcare.models.CheckSchedule;
 import com.example.healthcare.models.CustomToast;
 import com.example.healthcare.models.Repeat;
 import com.example.healthcare.models.Schedule;
+import com.example.healthcare.models.User;
 import com.example.healthcare.utils.AndroidUtil;
 import com.example.healthcare.utils.FirebaseUtil;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -66,6 +68,7 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
     RelativeLayout btnPrev, btnNext,blockData;
     RelativeLayout btnAdd;
     ImageView btnBack;
+    boolean checkFirstLoad = true;
     ProgressBar progressBarLoadData;
     List<Schedule> scheduleList, scheduleDrinkList,scheduleDrankList, scheduleEnableList, scheduleSkipList;
     List<CheckSchedule> checkScheduleList;
@@ -149,17 +152,34 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void showData() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                progressBarLoadData.setVisibility(View.GONE);
-                blockData.setVisibility(View.VISIBLE);
-                showListDrink(scheduleDrinkList);
-                showListEnable(scheduleEnableList);
-                showListDrank(scheduleDrankList);
-                showListSkip(scheduleSkipList);
-            }
-        }, 500);
+        if (checkFirstLoad){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    progressBarLoadData.setVisibility(View.GONE);
+                    blockData.setVisibility(View.VISIBLE);
+                    showListDrink(scheduleDrinkList);
+                    showListEnable(scheduleEnableList);
+                    showListDrank(scheduleDrankList);
+                    showListSkip(scheduleSkipList);
+                }
+            }, 500);
+        }
+        else {
+            progressBarLoadData.setVisibility(View.VISIBLE);
+            blockData.setVisibility(View.GONE);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    progressBarLoadData.setVisibility(View.GONE);
+                    blockData.setVisibility(View.VISIBLE);
+                    showListDrink(scheduleDrinkList);
+                    showListEnable(scheduleEnableList);
+                    showListDrank(scheduleDrankList);
+                    showListSkip(scheduleSkipList);
+                }
+            }, 700);
+        }
     }
 
     private void showListSkip(List<Schedule> scheduleSkipList) {
@@ -199,7 +219,7 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
         recyclerViewDrank.setAdapter(scheduleDetailDrankAdapter);
     }
 
-    private void updateStatusSchedule(Schedule schedule,int position, int status) {
+    private void updateStatusSchedule(Schedule schedule,int position,boolean isDrink, int status) {
         CheckSchedule checkSchedule = new CheckSchedule();
         checkSchedule.setScheduleId(schedule.getSid());
         checkSchedule.setDate(dateFormat.format(new Date()));
@@ -213,8 +233,14 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void run() {
                         if (status == 3){
-                            updateListDrink(position);
-                            updateListSkip(schedule);
+                            if (isDrink){
+                                updateListDrink(position);
+                                updateListSkip(schedule);
+                            }
+                            else {
+                                updateListEnable(position);
+                                updateListSkip(schedule);
+                            }
                         }
                         else if (status == 1){
                             updateListDrink(position);
@@ -224,6 +250,12 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
                 }, 2000);
             }
         });
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void updateListEnable(int position) {
+        scheduleEnableList.remove(position);
+        scheduleEnableAdapter.notifyDataSetChanged();
     }
 
     private void showListDrink(List<Schedule> scheduleDrinkList) {
@@ -240,7 +272,7 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onClickEnter(int position) {
                 Schedule schedule = finalScheduleDrinkList.get(position);
-                updateStatusSchedule(schedule,position,1);
+                updateStatusSchedule(schedule,position,true,1);
             }
 
             @Override
@@ -283,7 +315,7 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateStatusSchedule(schedule,position,3);
+                updateStatusSchedule(schedule,position,isDrink,3);
                 dialog.dismiss();
             }
         });
@@ -389,6 +421,7 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
         dateAdapter = new DateAdapter(weekDays, new DateAdapter.IDateViewHolder() {
             @Override
             public void onClickItem(int positon) {
+                checkFirstLoad = false;
                 String dateSelected = weekDays.get(positon);
                 String formattedDate = AndroidUtil.formatDate(dateSelected);
                 getScheduleByUser(formattedDate);
@@ -466,6 +499,4 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
             updateWeek();
         }
     }
-
-
 }

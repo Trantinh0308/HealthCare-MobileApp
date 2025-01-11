@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.patient.WaitingRoom">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp"
+        android:background="@color/mainColor"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phòng chờ khám"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="25dp"
+            android:src="@drawable/icon_back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="@color/white"
+            android:layout_centerVertical="true"
+            android:id="@+id/back_btn" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/block_checking"
+        android:layout_below="@id/top_layout"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_checking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đang khám"
+            android:textSize="16sp"
+            android:layout_marginStart="12dp"
+            android:textColor="@color/text_Color"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_checking"
+            android:layout_below="@id/text_checking"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <RelativeLayout
+            android:id="@+id/notice_checking_empty"
+            android:layout_below="@id/text_checking"
+            android:visibility="gone"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Trống"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/block_waiting"
+        android:layout_below="@id/block_checking"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_waiting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đang chờ"
+            android:textSize="16sp"
+            android:layout_marginStart="12dp"
+            android:textColor="@color/text_Color"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_waiting"
+            android:layout_below="@id/text_waiting"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+</RelativeLayout>

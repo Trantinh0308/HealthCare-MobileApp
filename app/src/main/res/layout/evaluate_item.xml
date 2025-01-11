@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="3dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trần Đình Tính"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+
+        <RatingBar
+            android:id="@+id/rating"
+            android:layout_below="@id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:numStars="5"
+            android:rating="4"
+            android:stepSize="1"
+            style="?android:attr/ratingBarStyleSmall"
+            android:theme="@style/RatingBar"/>
+        <TextView
+            android:id="@+id/comment"
+            android:layout_below="@id/rating"
+            android:layout_marginTop="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="xin chào"/>
+        <TextView
+            android:id="@+id/date"
+            android:layout_marginTop="3dp"
+            android:layout_below="@id/comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10/10/2014"/>
+        <View
+            android:id="@+id/line"
+            android:layout_below="@id/date"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:background="#E0E6FA"
+            android:layout_height="1dp"/>
+    </RelativeLayout>
+</RelativeLayout>

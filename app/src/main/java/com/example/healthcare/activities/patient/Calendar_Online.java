@@ -6,23 +6,34 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.healthcare.R;
 import com.example.healthcare.adapters.DateAdapter;
 import com.example.healthcare.adapters.DateOnlineAdapter;
 import com.example.healthcare.adapters.TimeOnlineAdapter;
-import com.example.healthcare.models.Doctor;
+import com.example.healthcare.models.CustomToast;
+import com.example.healthcare.models.OnlineDoctor;
 import com.example.healthcare.models.OnlineAppointment;
+import com.example.healthcare.models.User;
 import com.example.healthcare.utils.AndroidUtil;
 import com.example.healthcare.utils.FirebaseUtil;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -33,28 +44,31 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Calendar_Online extends AppCompatActivity implements View.OnClickListener {
     SimpleDateFormat dateFormat;
     Calendar currentCalendar;
-    RelativeLayout btnPrev,btnNext,btnEnter;
+    ProgressBar loadData;
+    boolean checkFirstLoad = true;
+    RelativeLayout btnPrev,btnNext,btnEnter,blockData;
     ImageButton btnBack;
     TextView nameDoctor;
+    ImageView imageViewDoctor;
     int indexChoose = -1, rcvChoose = -1;
-    String dateChoose;
+    String dateChoose, timeChoose = "", room = "";
     List<String> listAllTime,listTimeMorning, listTimeAfternoon, listTimeNight;
     List<String> weekDays;
     RecyclerView recyclerViewDate, recyclerViewTimeMorning, recyclerViewTimeAfternoon, recyclerViewTimeNight;
     DateOnlineAdapter dateOnlineAdapter;
     TimeOnlineAdapter timeMorningAdapter, timeAfternoonAdapter, timeNightAdapter;
-    Doctor doctor;
+    OnlineDoctor doctor;
+    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_online);
-        if (getIntent()!= null)doctor = AndroidUtil.getDoctorFromIntent(getIntent());
+        if (getIntent()!= null)doctor = AndroidUtil.getOnlineDoctorFromIntent(getIntent());
+        getCurrentUser();
         currentCalendar = Calendar.getInstance();
         dateChoose = new SimpleDateFormat("EEE, dd MMM", Locale.getDefault()).format(new Date());
         dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -62,6 +76,15 @@ public class Calendar_Online extends AppCompatActivity implements View.OnClickLi
         setOnClick();
         setListDateView();
         setListTimeView(dateChoose);
+    }
+
+    private void getCurrentUser() {
+        FirebaseUtil.currentUserDetailsById().get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                user = task.getResult().toObject(User.class);
+            }
+        });
     }
 
     private void setOnClick() {
@@ -94,8 +117,9 @@ public class Calendar_Online extends AppCompatActivity implements View.OnClickLi
     }
 
     private void getListOnlineAppointmentByDateChoose(String dateChoose) {
-        FirebaseUtil.allOnlineAppointmentByDoctorId(doctor.getDoctorId())
-                .whereEqualTo("appointmentDate", formatDate(dateChoose))
+        FirebaseUtil.allOnlineAppointment()
+                .whereEqualTo("doctor.doctorId", doctor.getDoctorId())
+                .whereEqualTo("appointmentDate", AndroidUtil.formatDate(dateChoose))
                 .whereIn("stateAppointment", Arrays.asList(0, 1))
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -106,7 +130,11 @@ public class Calendar_Online extends AppCompatActivity implements View.OnClickLi
                             OnlineAppointment appointment = document.toObject(OnlineAppointment.class);
                             listAllTime.remove(appointment.getTime());
                         }
-                        if (formatDate(dateChoose).equals(getCurrentDate())){
+                        if (dateChoose.contains("CN")){
+                            updateUI(new ArrayList<>());
+                            return;
+                        }
+                        if (AndroidUtil.formatDate(dateChoose).equals(AndroidUtil.getCurrentDate())){
                             for (String time : listAllTime){
                                 if (time.compareTo(AndroidUtil.currentTime()) > 0){
                                     results.add(time);
@@ -123,7 +151,6 @@ public class Calendar_Online extends AppCompatActivity implements View.OnClickLi
         listTimeMorning = new ArrayList<>();
         listTimeAfternoon = new ArrayList<>();
         listTimeNight = new ArrayList<>();
-
         for (String time : results){
             if (AndroidUtil.isTime2Greater(time,"12:00")){
                 listTimeMorning.add(time);
@@ -133,58 +160,84 @@ public class Calendar_Online extends AppCompatActivity implements View.OnClickLi
             }
             else listTimeNight.add(time);
         }
-        listTimeMorningView(listTimeMorning);
-        listTimeAfternoon(listTimeAfternoon);
-        listTimeNight(listTimeNight);
+        if (checkFirstLoad){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadData.setVisibility(View.GONE);
+                    blockData.setVisibility(View.VISIBLE);
+//                    listTimeMorningView(listTimeMorning);
+//                    listTimeAfternoon(listTimeAfternoon);
+//                    listTimeNight(listTimeNight);
+                }
+            }, 500);
+        }
+        else {
+            loadData.setVisibility(View.VISIBLE);
+            blockData.setVisibility(View.GONE);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadData.setVisibility(View.GONE);
+                    blockData.setVisibility(View.VISIBLE);
+//                    listTimeMorningView(listTimeMorning);
+//                    listTimeAfternoon(listTimeAfternoon);
+//                    listTimeNight(listTimeNight);
+                }
+            }, 500);
+        }
     }
 
-    private void listTimeNight(List<String> listTimeNight) {
+//    private void listTimeNight(List<String> listTimeNight) {
+//
+//        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 4);
+//        timeNightAdapter = new TimeOnlineAdapter(getApplicationContext(), listTimeNight, new TimeOnlineAdapter.ITimeViewHolder() {
+//            @Override
+//            public void onClickItem(int position) {
+//                timeChoose = listTimeNight.get(position);
+//                setUpTimeView(position,3);
+//            }
+//        });
+//        recyclerViewTimeNight.setLayoutManager(layoutManager);
+//        recyclerViewTimeNight.setAdapter(timeNightAdapter);
+//    }
 
-        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 4);
-        timeNightAdapter = new TimeOnlineAdapter(getApplicationContext(), listTimeNight, new TimeOnlineAdapter.ITimeViewHolder() {
-            @Override
-            public void onClickItem(int position) {
-                setUpTimeView(position,3);
-            }
-        });
-        recyclerViewTimeNight.setLayoutManager(layoutManager);
-        recyclerViewTimeNight.setAdapter(timeNightAdapter);
-    }
+//    private void listTimeAfternoon(List<String> listTimeAfternoon) {
+//        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 4);
+//        timeAfternoonAdapter = new TimeOnlineAdapter(getApplicationContext(), listTimeAfternoon, new TimeOnlineAdapter.ITimeViewHolder() {
+//            @Override
+//            public void onClickItem(int position) {
+//                timeChoose = listTimeAfternoon.get(position);
+//                setUpTimeView(position,2);
+//            }
+//        });
+//        recyclerViewTimeAfternoon.setLayoutManager(layoutManager);
+//        recyclerViewTimeAfternoon.setAdapter(timeAfternoonAdapter);
+//    }
 
-    private void listTimeAfternoon(List<String> listTimeAfternoon) {
-        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 4);
-        timeAfternoonAdapter = new TimeOnlineAdapter(getApplicationContext(), listTimeAfternoon, new TimeOnlineAdapter.ITimeViewHolder() {
-            @Override
-            public void onClickItem(int position) {
-                setUpTimeView(position,2);
-            }
-        });
-        recyclerViewTimeAfternoon.setLayoutManager(layoutManager);
-        recyclerViewTimeAfternoon.setAdapter(timeAfternoonAdapter);
-    }
-
-    private void listTimeMorningView(List<String> listTimeMorning) {
-        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 4);
-        timeMorningAdapter = new TimeOnlineAdapter(getApplicationContext(), listTimeMorning, new TimeOnlineAdapter.ITimeViewHolder() {
-            @Override
-            public void onClickItem(int position) {
-                setUpTimeView(position,1);
-            }
-        });
-        recyclerViewTimeMorning.setLayoutManager(layoutManager);
-        recyclerViewTimeMorning.setAdapter(timeMorningAdapter);
-    }
+//    private void listTimeMorningView(List<String> listTimeMorning) {
+//        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 4);
+//        timeMorningAdapter = new TimeOnlineAdapter(getApplicationContext(), listTimeMorning, new TimeOnlineAdapter.ITimeViewHolder() {
+//            @Override
+//            public void onClickItem(int position) {
+//                timeChoose = listTimeMorning.get(position);
+//                setUpTimeView(position,1);
+//            }
+//        });
+//        recyclerViewTimeMorning.setLayoutManager(layoutManager);
+//        recyclerViewTimeMorning.setAdapter(timeMorningAdapter);
+//    }
 
     private void setListDateView() {
         weekDays = getWeekDays(currentCalendar);
         int dateSelectedPosition = weekDays.indexOf(dateChoose);
 
-        dateOnlineAdapter = new DateOnlineAdapter(weekDays, new DateAdapter.IDateViewHolder() {
+        dateOnlineAdapter = new DateOnlineAdapter(weekDays, new DateOnlineAdapter.IDateViewHolder() {
             @Override
             public void onClickItem(int positon) {
+                checkFirstLoad = false;
                 dateChoose = weekDays.get(positon);
-                String dateSelected = weekDays.get(positon);
-                String formattedDate = formatDate(dateSelected);
+                setListTimeView(dateChoose);
             }
         });
         if (dateSelectedPosition != -1)dateOnlineAdapter.selectedPosition = dateSelectedPosition;
@@ -208,39 +261,37 @@ public class Calendar_Online extends AppCompatActivity implements View.OnClickLi
 
         return days;
     }
-    private String formatDate(String input) {
-        String regex = "\\d+";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(input);
-
-        List<String> numbersList = new ArrayList<>();
-        while (matcher.find()) {
-            numbersList.add(matcher.group());
-        }
-
-        String day = null, month = null;
-        if (numbersList.size() == 2) {
-            day = numbersList.get(0);
-            month = numbersList.get(1);
-        } else if (numbersList.size() == 3) {
-            day = numbersList.get(1);
-            month = numbersList.get(2);
-        }
-        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-        return day + "/" + month + "/" + currentYear;
-    }
 
     private void initView() {
+        loadData = findViewById(R.id.progress_bar);
         btnBack = findViewById(R.id.back_btn);
         btnPrev = findViewById(R.id.btnPrev);
         btnNext = findViewById(R.id.btnNext);
         btnEnter = findViewById(R.id.btn_enter);
+        blockData = findViewById(R.id.blockData);
         nameDoctor = findViewById(R.id.name_doctor);
-        nameDoctor.setText(doctor.getFullName());
+        nameDoctor.setText("Bác sĩ "+doctor.getFullName());
         recyclerViewDate = findViewById(R.id.list_date);
         recyclerViewTimeMorning = findViewById(R.id.list_time_morning);
         recyclerViewTimeAfternoon = findViewById(R.id.list_time_afternoon);
         recyclerViewTimeNight = findViewById(R.id.list_time_night);
+        imageViewDoctor = findViewById(R.id.image_doctor);
+        deCodeImage(imageViewDoctor,doctor.getImageCode());
+    }
+
+    private void deCodeImage(ImageView imageViewDoctor, String imageCode) {
+        if (imageCode != null && !imageCode.isEmpty()) {
+            try {
+                byte[] decodedString = Base64.decode(imageCode, Base64.DEFAULT);
+                Bitmap decodedBitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                imageViewDoctor.setImageBitmap(decodedBitmap);
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+                imageViewDoctor.setImageResource(R.drawable.drugs);
+            }
+        } else {
+            imageViewDoctor.setImageResource(R.drawable.drugs);
+        }
     }
 
     private void setUpTimeView(int position, int rcv){
@@ -265,6 +316,9 @@ public class Calendar_Online extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+        if (v.getId() == R.id.back_btn){
+            finish();
+        }
         if (v.getId() == R.id.btnPrev){
             currentCalendar.add(Calendar.WEEK_OF_YEAR, -1);
             setListDateView();
@@ -273,10 +327,33 @@ public class Calendar_Online extends AppCompatActivity implements View.OnClickLi
             currentCalendar.add(Calendar.WEEK_OF_YEAR, 1);
             setListDateView();
         }
+        if (v.getId() == R.id.btn_enter){
+            validData();
+        }
     }
-    private String getCurrentDate() {
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        Date currentDate = new Date();
-        return format.format(currentDate);
+
+    private void validData() {
+        if (timeChoose.equals("")){
+            CustomToast.showToast(this,"Chưa chọn giờ khám",1000);
+            return;
+        }
+        if (dateChoose.contains("CN")){
+            CustomToast.showToast(this,"Chưa chọn ngày khám",1000);
+            return;
+        }
+        OnlineAppointment appointment = new OnlineAppointment();
+        appointment.setAppointmentDate(AndroidUtil.formatDate(dateChoose));
+        appointment.setBookDate(AndroidUtil.getCurrentDate());
+        appointment.setTime(timeChoose);
+        Intent intent = new Intent(this,Person_Online.class);
+        AndroidUtil.passOnlineDoctorAsIntent(intent,doctor);
+        AndroidUtil.passOnlineAppointmentAsIntent(intent,appointment);
+        if (user != null)intent.putExtra("userName",getNameFromFullName(user.getFullName()));
+        startActivity(intent);
+    }
+
+    private String getNameFromFullName(String fullName){
+        String[]str = fullName.split(" ");
+        return str[str.length-1];
     }
 }

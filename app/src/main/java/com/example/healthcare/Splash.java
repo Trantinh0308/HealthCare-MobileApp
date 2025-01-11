@@ -13,6 +13,7 @@ import com.example.healthcare.activities.Login;
 import com.example.healthcare.activities.doctor.DoctorMain;
 import com.example.healthcare.activities.employee.MainEmployee;
 import com.example.healthcare.activities.patient.Main;
+import com.example.healthcare.models.OnlineDoctor;
 import com.example.healthcare.models.Role;
 import com.example.healthcare.utils.FirebaseUtil;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +30,7 @@ public class Splash extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         new Handler().postDelayed(new Runnable() {
@@ -86,5 +88,4 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
     }
-
 }

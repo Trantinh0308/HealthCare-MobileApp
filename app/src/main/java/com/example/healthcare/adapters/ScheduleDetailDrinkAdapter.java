@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,15 +94,19 @@ public class ScheduleDetailDrinkAdapter extends RecyclerView.Adapter<ScheduleDet
             @SuppressLint("SetTextI18n")
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                Repeat repeat = task.getResult().toObject(Repeat.class);
-                if (repeat != null && isEarlier(getCurrentTimeDate(),repeat.getTime()+"/"+repeat.getDate())
-                && getCurrentDate().equals(repeat.getDate())){
-                    holder.titleRemind.setText("Nhắc lại vào "+repeat.getTime());
-                    holder.btnRemind.setVisibility(View.GONE);
-                }
-                else {
-                    holder.titleRemind.setVisibility(View.GONE);
-                    holder.btnRemind.setVisibility(View.VISIBLE);
+                if (task.isSuccessful() && task.getResult() != null) {
+                    Repeat repeat = task.getResult().toObject(Repeat.class);
+                    if (repeat != null && isEarlier(getCurrentTimeDate(),repeat.getTime()+"/"+repeat.getDate())
+                            && getCurrentDate().equals(repeat.getDate())){
+                        holder.titleRemind.setText("Nhắc lại vào "+repeat.getTime());
+                        holder.btnRemind.setVisibility(View.GONE);
+                    }
+                    else {
+                        holder.titleRemind.setVisibility(View.GONE);
+                        holder.btnRemind.setVisibility(View.VISIBLE);
+                    }
+                } else {
+                    Log.d("TAG", "ERROR");
                 }
             }
         });

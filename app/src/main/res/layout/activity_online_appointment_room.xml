@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.doctor.OnlineAppointmentRoom">
+
+    <RelativeLayout
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:background="@color/mainColor"
+        android:paddingEnd="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="7dp"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="25dp"
+            android:src="@drawable/icon_back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/white"
+            android:layout_centerVertical="true"
+            android:id="@+id/back_btn"/>
+        <RelativeLayout
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đang chờ :"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-medium" />
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_toEndOf="@id/text"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium" />
+            <ImageView
+                android:id="@+id/icon_user"
+                android:layout_marginLeft="3dp"
+                android:layout_toEndOf="@id/number"
+                android:layout_width="22dp"
+                android:layout_height="21dp"
+                android:background="@drawable/person"
+                android:backgroundTint="@color/white"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/block_patient"
+        android:layout_below="@id/bg"
+        app:cardElevation="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_chat"
+                android:layout_width="60dp"
+                android:padding="5dp"
+                android:src="@drawable/profile"
+                android:layout_height="60dp"/>
+            <RelativeLayout
+                android:layout_toEndOf="@id/image_chat"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:id="@+id/form"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/fullName_Chat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="..."
+                        android:textSize="18sp"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_layout"
+        android:layout_below="@id/block_patient"
+        android:id="@+id/chat_recycler_view"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        android:id="@+id/bottom_layout">
+
+        <RelativeLayout
+            android:id="@+id/menu"
+            android:layout_marginEnd="45dp"
+            android:layout_alignParentStart="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/menu_records"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/icon_records"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/record"/>
+                <TextView
+                    android:id="@+id/records_text1"
+                    android:layout_below="@id/icon_records"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_Color"
+                    android:text="Hồ sơ"/>
+                <TextView
+                    android:id="@+id/records_text2"
+                    android:layout_below="@id/records_text1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_Color"
+                    android:text="bệnh án"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/menu_change"
+                android:layout_alignParentEnd="true"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/icon_change"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/changes"/>
+                <TextView
+                    android:id="@+id/change_text1"
+                    android:layout_below="@id/icon_change"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_Color"
+                    android:text="Mời bệnh"/>
+                <TextView
+                    android:id="@+id/change_text2"
+                    android:layout_below="@id/change_text1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_Color"
+                    android:text="nhân mới"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/menu_health"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <ImageView
+                        android:id="@+id/icon_health"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/icon_heart"
+                        android:backgroundTint="@color/mainColor" />
+
+                    <TextView
+                        android:id="@+id/health_text1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/icon_health"
+                        android:layout_centerHorizontal="true"
+                        android:text="Sức khỏe"
+                        android:textColor="@color/text_Color" />
+
+                    <TextView
+                        android:id="@+id/health_text2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/health_text1"
+                        android:layout_centerHorizontal="true"
+                        android:text="bệnh nhân"
+                        android:textColor="@color/text_Color" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/menu_call"
+                    android:layout_toEndOf="@id/menu_health"
+                    android:layout_marginLeft="28dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
+                        android:id="@+id/icon_videoCall"
+                        android:layout_width="37dp"
+                        android:layout_height="31dp"
+                        android:backgroundTint="@color/mainColor"
+                        android:layout_centerHorizontal="true"/>
+                    <TextView
+                        android:id="@+id/call_text1"
+                        android:layout_below="@id/icon_videoCall"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_Color"
+                        android:text="Gọi video"/>
+                    <TextView
+                        android:id="@+id/call_text2"
+                        android:layout_below="@id/call_text1"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/text_Color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="call"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/chat_message_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@id/menu"
+            android:layout_marginTop="5dp"
+            android:layout_toLeftOf="@id/message_send_btn"
+            android:backgroundTint="#ECEBEB"
+            android:background="@drawable/custom_edittext_chat"
+            android:elevation="4dp"
+            android:padding="10dp" />
+
+        <ImageButton
+            android:id="@+id/message_send_btn"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/menu"
+            android:background="@drawable/send"
+            android:padding="8dp"
+            tools:ignore="UseAppTint" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,9 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.doctor.DoctorMain">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/page_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/menu">
+
+    </FrameLayout>
+    <!--    menu-->
+    <RelativeLayout
+        android:id="@+id/menu"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custom_form_bottomnavigation_home"
+        android:layout_width="match_parent"
+        android:layout_height="57dp">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/menuBottom"
+            android:layout_width="match_parent"
+            android:background="@drawable/custom_form_bottomnavigation_home"
+            android:layout_height="match_parent"
+            app:itemIconTint="@color/itemcolor"
+            app:labelVisibilityMode="labeled"
+            app:itemTextColor="@color/itemcolor"
+            app:menu="@menu/menu_doctor" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@color/white"
+            android:paddingTop="5dp"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/btnHome"
+                android:background="@drawable/circular_bg"
+                android:paddingTop="4dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp" >
+                <ImageView
+                    android:background="@drawable/icon_heart"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="7dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/notification_bg"
+            android:visibility="gone"
+            android:layout_width="19dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="97dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/custom_notice"
+            android:layout_height="19dp">
+
+            <TextView
+                android:id="@+id/notice_Number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text=""
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </RelativeLayout>
+</RelativeLayout>

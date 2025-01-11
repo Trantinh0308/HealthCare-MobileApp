@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="360dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:background="@drawable/custom_toplayout_home_2"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_marginBottom="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title_top"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đăng nhập"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_Color"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/title_below"
+                android:layout_below="@id/title_top"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vui lòng đăng nhập để sử dụng dịch vụ"
+                android:textSize="16sp"
+                android:textColor="@color/text_Color" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_below="@id/title"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/cancel"
+                android:clickable="true"
+                android:backgroundTint="#E7F2F8"
+                android:background="@drawable/custom_button"
+                android:layout_width="165dp"
+                android:layout_height="45dp">
+
+                <TextView
+                    android:id="@+id/text_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hủy"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/mainColor"
+                    android:textSize="18sp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/agree"
+                android:layout_toEndOf="@id/cancel"
+                android:layout_marginLeft="10dp"
+                android:clickable="true"
+                android:background="@drawable/custom_button"
+                android:layout_width="165dp"
+                android:layout_height="45dp">
+
+                <TextView
+                    android:id="@+id/textAgree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đồng ý"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

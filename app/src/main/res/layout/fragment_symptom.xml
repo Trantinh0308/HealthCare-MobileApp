@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.patient.Symptom1Fragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_question"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+        <RelativeLayout
+            android:id="@+id/block_notice"
+            android:visibility="gone"
+            android:background="@drawable/custom_button_detail_doctor"
+            android:backgroundTint="#FFF3DE"
+            android:layout_centerVertical="true"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Không tìm thấy dữ liệu về triệu chứng của bạn"
+                android:textStyle="bold"
+                android:textColor="#FFA000"
+                android:textSize="16sp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

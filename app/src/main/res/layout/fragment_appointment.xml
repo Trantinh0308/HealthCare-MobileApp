@@ -1,14 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8FAFF"
     tools:context=".fragments.patient.Appointment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:background="@drawable/custom_top_layout_appointment"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lịch hẹn"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/block_menu"
+        android:background="@drawable/custom_button"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="53dp"
+        android:layout_centerHorizontal="true"
+        android:padding="3.5dp"
+        android:layout_width="362dp"
+        android:layout_height="55dp">
+
+        <RelativeLayout
+            android:id="@+id/btn_appointment"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="@color/white"
+            android:layout_width="177.5dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_appointment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lịch khám"
+                android:textSize="15dp"
+                android:textAllCaps="false"
+                android:textColor="@color/light_gray"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_examined"
+            android:layout_toEndOf="@id/btn_appointment"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="@color/color_background_menu_appointment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_examined"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lịch tái khám"
+                android:textSize="15dp"
+                android:textAllCaps="false"
+                android:textColor="@color/text_Color"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+    //
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_below="@id/block_menu">
 
-</FrameLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_Appointment"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+    </RelativeLayout>
+</RelativeLayout>

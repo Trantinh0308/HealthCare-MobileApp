@@ -1,6 +1,6 @@
 package com.example.healthcare.models;
 
-public class Doctor {
+public class OnlineDoctor {
     private String fullName;
     private String gender;
     private String phoneNumber;
@@ -13,9 +13,10 @@ public class Doctor {
     private int appointment;
     private String imageCode;
     private int price;
+    private String room;
     private String doctorId;
 
-    public Doctor() {
+    public OnlineDoctor() {
     }
 
     public String getFullName() {
@@ -112,6 +113,14 @@ public class Doctor {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
     }
 
     public String getDoctorId() {

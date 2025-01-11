@@ -17,14 +17,14 @@ import java.util.List;
 
 public class TimeOnlineAdapter extends RecyclerView.Adapter<TimeOnlineAdapter.TimeViewHolder>{
     private List<String> timeList;
-    Context context;
+    private List<Boolean> indexList;
     public int selectedPosition = -1;
     private ITimeViewHolder iTimeViewHolder;
 
-    public TimeOnlineAdapter(Context context, List<String> timeList, ITimeViewHolder iDateHolder) {
+    public TimeOnlineAdapter( List<String> timeList,List<Boolean> indexList, ITimeViewHolder iDateHolder) {
         this.timeList = timeList;
+        this.indexList = indexList;
         this.iTimeViewHolder = iDateHolder;
-        this.context = context;
     }
 
     public void setiTimeViewHolder(ITimeViewHolder iTimeViewHolder) {
@@ -42,7 +42,7 @@ public class TimeOnlineAdapter extends RecyclerView.Adapter<TimeOnlineAdapter.Ti
     public void onBindViewHolder(@NonNull TimeViewHolder holder, @SuppressLint("RecyclerView") int position) {
         String time = timeList.get(position);
         holder.textTime.setText(time);
-        holder.bind(position == selectedPosition);
+        holder.bind(position == selectedPosition,position,indexList);
 
         holder.itemView.setOnClickListener(v -> {
             iTimeViewHolder.onClickItem(position);
@@ -67,7 +67,13 @@ public class TimeOnlineAdapter extends RecyclerView.Adapter<TimeOnlineAdapter.Ti
             textTime = itemView.findViewById(R.id.time);
         }
 
-        public void bind(boolean isSelected) {
+        public void bind(boolean isSelected, int position, List<Boolean> indexList) {
+            if (!indexList.get(position)){
+                itemView.setEnabled(false);
+                textTime.setTextColor(ContextCompat.getColor(context, R.color.gray));
+                itemView.setBackgroundResource(R.drawable.custom_time_enable);
+                return;
+            }
             if (isSelected) {
                 itemView.setBackgroundResource(R.drawable.custom_calendar_choosed);
                 textTime.setTextColor(ContextCompat.getColor(context, R.color.white));
@@ -79,6 +85,5 @@ public class TimeOnlineAdapter extends RecyclerView.Adapter<TimeOnlineAdapter.Ti
     }
     public interface ITimeViewHolder {
         void onClickItem(int position);
-
     }
 }

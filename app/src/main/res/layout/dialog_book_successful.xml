@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/notify_form"
+        android:layout_width="match_parent"
+        android:background="@drawable/custom_top_form_menu_orther"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/checked" />
+
+        <RelativeLayout
+            android:id="@+id/notify_title"
+            android:layout_below="@id/icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title_under"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đặt lịch thành công"
+                android:textColor="@color/black"
+                android:textSize="19sp"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/title_below"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_under"
+                android:text="Bạn đã đặt lịch khám thành công tại Health Care."
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:lineSpacingExtra="3dp"
+                android:layout_marginTop="9dp"
+                android:gravity="center_horizontal"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        //
+        <RelativeLayout
+            android:id="@+id/block_reminder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/notify_title"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/custom_button_detail_doctor"
+            android:backgroundTint="#E2F4F6"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
+
+            <RelativeLayout
+                android:id="@+id/reminder_block_one"
+                android:layout_width="match_parent"
+                android:layout_height="38dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Nhắc lịch khám"
+                    android:textColor="@color/text_Color"
+                    android:textSize="17sp" />
+
+                <RelativeLayout
+                    android:id="@+id/change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:clickable="true">
+
+                    <TextView
+                        android:id="@+id/text_change"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Thay đổi"
+                        android:textColor="@color/chat_color_sender" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/text_change"
+                        android:background="@drawable/custom_right"
+                        android:backgroundTint="@color/chat_color_sender" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#E0E6FA" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/reminder_block_two"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_below="@id/reminder_block_one"
+                android:paddingTop="8dp"
+                android:paddingBottom="6dp">
+
+                <RelativeLayout
+                    android:id="@+id/block_remider_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/text_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_Color"
+                        android:textSize="15sp"
+                        android:text="Ngày nhắc" />
+
+                    <TextView
+                        android:id="@+id/reminder_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="10/04/2024" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/block_remider_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/block_remider_date"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/reminder_text_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_Color"
+                        android:textSize="15sp"
+                        android:text="Giờ nhắc" />
+
+                    <TextView
+                        android:id="@+id/reminder_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="07:00" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#E0E6FA" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_below="@id/reminder_block_two">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/text_Color"
+                    android:textSize="15sp"
+                    android:text="Bật/Tắt nhắc hẹn" />
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/notificationSwitch"
+                    android:layout_width="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:checked="true"
+                    app:track="@drawable/custom_track"
+                    android:thumb="@drawable/custom_thumb"
+                    android:layout_height="50dp"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/notify_button"
+            android:layout_width="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/block_reminder"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/btn_main"
+                android:background="@drawable/custom_button"
+                android:backgroundTint="#F0F1F8"
+                android:layout_width="188dp"
+                android:layout_height="47dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/mainColor"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="Trang chủ"
+                    android:textSize="18sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_detail"
+                android:background="@drawable/custom_button"
+                android:layout_toEndOf="@id/btn_main"
+                android:layout_marginLeft="12dp"
+                android:layout_width="188dp"
+                android:layout_height="47dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="Xem lịch hẹn"
+                    android:textSize="18sp"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

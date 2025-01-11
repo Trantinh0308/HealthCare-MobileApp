@@ -15,7 +15,7 @@ public class User {
     private int weight;
     private String image;
     private Timestamp createdTimestamp;
-    private List<String> relativeList;
+    private List<User> relativeList;
     private String relative;
     private String userId;
     public User() {
@@ -101,11 +101,11 @@ public class User {
         this.userId = userId;
     }
 
-    public List<String> getRelativeList() {
+    public List<User> getRelativeList() {
         return relativeList;
     }
 
-    public void setRelativeList(List<String> relativeList) {
+    public void setRelativeList(List<User> relativeList) {
         this.relativeList = relativeList;
     }
 

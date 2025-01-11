@@ -58,25 +58,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/name_doctor"
-                    android:text="Chu Thi Minh"
-                    android:textSize="18sp"
-                    android:textColor="@color/text_Color"
-                    android:textStyle="bold"
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                <RelativeLayout
+                    android:id="@+id/doctor_detail"
+                    android:paddingStart="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/image_doctor"
+                        android:layout_centerVertical="true"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
+                    <TextView
+                        android:id="@+id/name_doctor"
+                        android:layout_centerVertical="true"
+                        android:text="Chu Thi Minh"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_Color"
+                        android:textStyle="bold"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
                 <TextView
                     android:id="@+id/text_title"
-                    android:layout_below="@id/name_doctor"
+                    android:layout_below="@id/doctor_detail"
                     android:layout_centerHorizontal="true"
                     android:textSize="17sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lịch tư vấn trực tuyến"
-                    android:textColor="@color/text_Color"
-                    android:layout_marginTop="10dp"/>
+                    android:text="Lịch khám trực tuyến"
+                    android:textColor="@color/text_Color"/>
 
                 <RelativeLayout
                     android:id="@+id/block_listDate"
@@ -98,13 +110,16 @@
                             android:layout_centerHorizontal="true"
                             android:background="@drawable/prev"/>
                     </RelativeLayout>
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/list_date"
-                        android:layout_toEndOf="@id/btnPrev"
-                        android:layout_toStartOf="@id/btnNext"
-                        android:nestedScrollingEnabled="false"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-3dp"
+                        android:layout_marginEnd="3dp"
+                        android:layout_toStartOf="@id/btnNext"
+                        android:layout_toEndOf="@id/btnPrev"
+                        android:nestedScrollingEnabled="false" />
 
                     <RelativeLayout
                         android:id="@+id/btnNext"
@@ -121,8 +136,19 @@
                 </RelativeLayout>
             </RelativeLayout>
 
-            <RelativeLayout
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:visibility="visible"
                 android:layout_below="@id/block_top"
+                android:layout_marginTop="230dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="35dp"
+                android:layout_height="35dp"/>
+
+            <RelativeLayout
+                android:id="@+id/blockData"
+                android:layout_below="@id/block_top"
+                android:visibility="gone"
                 android:background="@drawable/custom_button"
                 android:backgroundTint="#DADFFB"
                 android:layout_marginStart="15dp"
@@ -253,9 +279,11 @@
 
                 <RelativeLayout
                     android:id="@+id/btn_enter"
+                    android:clickable="true"
                     android:layout_width="300dp"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
                     android:background="@drawable/custom_button">
 
                     <RelativeLayout

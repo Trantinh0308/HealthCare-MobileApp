@@ -3,13 +3,17 @@ package com.example.healthcare.models;
 public class Role {
     private String userId;
     private int isRole;
+    private boolean checkFace;
 
     public Role() {
     }
 
-    public Role(String userId, int isRole) {
-        this.userId = userId;
-        this.isRole = isRole;
+    public boolean isCheckFace() {
+        return checkFace;
+    }
+
+    public void setCheckFace(boolean checkFace) {
+        this.checkFace = checkFace;
     }
 
     public String getUserId() {

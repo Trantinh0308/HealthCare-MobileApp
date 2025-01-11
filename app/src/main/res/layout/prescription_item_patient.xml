@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/block_drug"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/drug_image"
+                android:layout_marginStart="12dp"
+                android:scaleType="centerCrop"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/drug_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/drug_image"
+                android:layout_marginLeft="12dp"
+                android:text="xin chào"
+                android:textSize="15sp"
+                android:textColor="@color/text_Color"
+                android:fontFamily="sans-serif-medium"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/block_note"
+            android:layout_below="@id/block_drug"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/note_image"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/icon_edit"
+                android:backgroundTint="@color/mainColor"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/note_image"
+                android:layout_marginLeft="12dp"
+                android:text="xin chào"
+                android:textSize="15sp"
+                android:textColor="@color/text_Color"
+                android:fontFamily="sans-serif-medium"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/btn_delete"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/icon_view"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground" />
+    </RelativeLayout>
+    <View
+        android:id="@+id/line_bottom"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:background="#E8EDFA"
+        android:layout_height="0.9dp"/>
+</RelativeLayout>

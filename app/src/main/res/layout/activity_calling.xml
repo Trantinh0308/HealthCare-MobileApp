@@ -7,6 +7,7 @@
     tools:context=".testCallingVideo.Calling">
 
     <RelativeLayout
+        android:id="@+id/top"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
@@ -22,8 +23,21 @@
             android:layout_below="@id/userId"
             android:layout_marginTop="5dp"
             android:text="StartCall"
-            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_Next"
+            android:layout_toEndOf="@id/btnStart"
+            android:layout_below="@id/userId"
+            android:layout_marginTop="5dp"
+            android:text="Next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </RelativeLayout>
+    <com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
+        android:id="@+id/btnCallVideo"
+        android:layout_below="@id/top"
+        android:backgroundTint="@color/mainColor"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
 </RelativeLayout>

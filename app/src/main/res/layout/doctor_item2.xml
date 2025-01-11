@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/custom_button"
+    android:layout_marginTop="8dp"
+    android:backgroundTint="@color/white"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:padding="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/block_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/block_image"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/image_doctor"
+                    android:layout_centerVertical="true"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_toEndOf="@id/block_image"
+                android:layout_marginLeft="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/name_doctor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chu Thị Minh"
+                    android:textSize="18sp"
+                    android:textColor="@color/text_Color"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/specialist"
+                    android:layout_below="@id/name_doctor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chuyên khoa Hô hấp"/>
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_below="@id/specialist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Giá khám: 340.000 đ"/>
+                <TextView
+                    android:id="@+id/number"
+                    android:layout_below="@id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lượt khám: 50"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_below="@id/block_top"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:id="@+id/btn_detail_doctor"
+                    android:clickable="true"
+                    android:background="@drawable/edit_text_book"
+                    android:layout_width="170dp"
+                    android:layout_height="45dp">
+                    <TextView
+                        android:id="@+id/text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Xem hồ sơ"
+                        android:textSize="15sp"
+                        android:textColor="@color/text_Color"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/btnBook"
+                    android:clickable="true"
+                    android:backgroundTint="#00C509"
+                    android:background="@drawable/custom_button"
+                    android:layout_toEndOf="@id/btn_detail_doctor"
+                    android:layout_marginLeft="12dp"
+                    android:layout_width="170dp"
+                    android:layout_height="45dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đặt lịch khám"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

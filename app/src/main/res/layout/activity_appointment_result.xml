@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.patient.AppointmentResult">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:background="@drawable/custom_top_layout_appointment"
+        android:paddingEnd="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="25dp"
+            android:src="@drawable/icon_back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="@color/white"
+            android:layout_marginTop="12dp"
+            android:id="@+id/back_btn" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kết quả khám"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+        <RelativeLayout
+            android:id="@+id/btnAdd"
+            android:visibility="gone"
+            android:clickable="true"
+            android:layout_alignParentEnd="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/add"
+            android:layout_width="28dp"
+            android:layout_height="28dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/block_menu"
+        android:background="@drawable/custom_button"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="53dp"
+        android:layout_centerHorizontal="true"
+        android:padding="3.5dp"
+        android:layout_width="362dp"
+        android:layout_height="55dp">
+
+        <RelativeLayout
+            android:id="@+id/btn_appointment"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="@color/white"
+            android:layout_width="177.5dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_appointment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Khám trực tuyến"
+                android:textSize="15dp"
+                android:textAllCaps="false"
+                android:textColor="@color/light_gray"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_direct"
+            android:layout_toEndOf="@id/btn_appointment"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="@color/color_background_menu_appointment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_direct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Khám trực tiếp"
+                android:textSize="15dp"
+                android:textAllCaps="false"
+                android:textColor="@color/text_Color"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+    //
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/block_menu">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_Appointment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -90,11 +90,11 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.DateItemViewHo
             }
             // Đặt nền cho item
             if (isSelected) {
-                itemView.setBackgroundResource(R.drawable.custom_form_date);
+                itemView.setBackgroundResource(R.drawable.custom_menu_selected);
                 textDate.setTextColor(ContextCompat.getColor(context, R.color.white));
                 textDateMonth.setTextColor(ContextCompat.getColor(context, R.color.white));
             } else {
-                itemView.setBackgroundResource(R.drawable.custom_date_not_selected);
+                itemView.setBackgroundResource(R.drawable.custom_menu_not_selected);
                 textDate.setTextColor(ContextCompat.getColor(context, R.color.gray));
                 textDateMonth.setTextColor(ContextCompat.getColor(context, R.color.gray));
             }

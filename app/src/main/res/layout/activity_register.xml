@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.patient.Register">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/viewFinder"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="380dp"
+        android:layout_height="450dp" />
+    <ProgressBar
+        android:id="@+id/progress_register"
+        style="@style/CircularDeterminateProgressBar"
+        android:layout_below="@id/viewFinder"
+        android:layout_centerHorizontal="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:indeterminateOnly="false"
+        android:progress="60"
+        android:progressDrawable="@drawable/progress_bar_round"
+        android:rotation="-90"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:progress="60" />
+        <RelativeLayout
+            android:id="@+id/block_notice"
+            android:visibility="gone"
+            android:layout_below="@id/viewFinder"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/icon_tick"
+                android:background="@drawable/tick2"
+                android:backgroundTint="@color/mainColor"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="22dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"/>
+        </RelativeLayout>
+    <TextView
+        android:id="@+id/text_complete"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Xong"
+        android:textColor="@color/text_Color"
+        android:layout_below="@id/progress_register"/>
+</RelativeLayout>
