@@ -15,7 +15,7 @@
 - ## Giao diện chính 
   <img src="docs/images/anh1.jpg" width="200" height="450" />
 - ## Chức năng đặt lịch khám
-<table>
+ <table>
   <tr>
     <td style="padding: 10px; vertical-align: top; width: 30%;">
       <div style="position: relative;">
@@ -76,10 +76,9 @@
       </div>
     </td>
   </tr>
-</table>
+ </table>
 - ## Chức năng khám bệnh trực tuyến:
-  - Phòng chat
-<table>
+ <table>
   <tr>
     <td style="padding: 10px; vertical-align: top; width: 30%;">
       <div style="position: relative;">
@@ -106,7 +105,7 @@
       </div>
     </td>
   </tr>
-</table>
+ </table>
 
 
 
