@@ -22,7 +22,7 @@
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
           Giao diện 1
         </div>
-        <img src="docs/images/anh3.png" style="width: 30%; height: auto;" />
+        <img src="docs/images/anh3.png" style="max-width: 100%; height: auto;" />
       </div>
     </td>
     <td style="padding: 10px; vertical-align: top;">
@@ -30,11 +30,35 @@
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
           Giao diện 2
         </div>
-        <img src="docs/images/anh2.png" style="width: 30%; height: auto;" />
+        <img src="docs/images/anh2.png" style="max-width: 100%; height: auto;" />
       </div>
     </td>
   </tr>
 </table>
+
+<style>
+  /* Thiết lập kích thước mặc định cho màn hình lớn */
+  td {
+    width: 50%; /* Mỗi ô chiếm 50% chiều rộng */
+  }
+
+  /* Điều chỉnh kích thước cho màn hình nhỏ hơn (ví dụ: tablet) */
+  @media (max-width: 768px) {
+    td {
+      width: 100%; /* Mỗi ô chiếm 100% chiều rộng */
+    }
+  }
+
+  /* Điều chỉnh kích thước cho màn hình nhỏ hơn nữa (ví dụ: điện thoại) */
+  @media (max-width: 480px) {
+    td {
+      width: 100%; /* Mỗi ô vẫn chiếm 100% chiều rộng, nhưng có thể điều chỉnh kích thước ảnh */
+    }
+    img {
+      max-width: 80%; /* Giảm kích thước ảnh trên điện thoại */
+    }
+  }
+</style>
 
 
 
