@@ -35,7 +35,24 @@
     </td>
   </tr>
 </table>
+<head>
+<style>
+  table {
+    width: 50%; /* Điều chỉnh chiều rộng của bảng theo ý muốn */
+    margin: 0 auto; /* Để bảng ở giữa trang */
+    border-collapse: collapse; /* Loại bỏ khoảng cách giữa các ô */
+  }
 
+  td {
+    padding: 10px;
+    vertical-align: top;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
 
 
 
