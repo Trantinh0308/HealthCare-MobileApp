@@ -14,7 +14,7 @@
 # Hình ảnh kết quả dự án:
 <table>
   <tr>
-    <td style="width: 300px; height: 250px; vertical-align: top; padding: 10px; overflow: hidden;">
+    <td style="width: 200px; height: 250px; vertical-align: top; padding: 10px; overflow: hidden;">
       <div style="position: relative;">
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
           Giao diện 1
