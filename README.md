@@ -19,7 +19,7 @@
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
           Giao diện 1
         </div>
-        <img src="docs/images/anh1.jpg" style="height: 200px; width: 30%;" />
+        <img src="docs/images/anh1.jpg" style="height: 200px; width: auto;" />
       </div>
     </td>
     <td>
@@ -27,7 +27,7 @@
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
           Giao diện 2
         </div>
-        <img src="docs/images/anh2.png" style="height: 200px; width: 30%x;" />
+        <img src="docs/images/anh2.png" style="height: 200px; width: auto;" />
       </div>
     </td>
   </tr>
