@@ -77,7 +77,8 @@
     </td>
   </tr>
 </table>
-- ## Chức năng khám bệnh trực tuyến
+- ## Chức năng khám bệnh trực tuyến:
+  - Phòng chat
 <table>
   <tr>
     <td style="padding: 10px; vertical-align: top; width: 30%;">
