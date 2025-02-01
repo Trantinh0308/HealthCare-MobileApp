@@ -13,9 +13,9 @@
 
 # Hình ảnh kết quả dự án:
 - **Giao diện chính**  
-  <div style="border: 2px solid black; width: 200px; height: 300px; padding: 5px;">
-    <img src="docs/images/anh1.jpg" width="30%" height="30%" />
-  </div>
+  <div style="border: 2px solid black; width: 200px; height: 300px; display: flex; justify-content: center; align-items: center;">
+  <img src="docs/images/anh1.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
+</div>
 **Chức năng đặt lịch khám**
 <table>
   <tr>
