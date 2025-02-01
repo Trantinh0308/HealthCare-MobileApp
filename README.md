@@ -22,7 +22,7 @@
         <img src="docs/images/anh1.jpg" style="height: 100%; width: auto; max-width: 100%; object-fit: contain;" />
       </div>
     </td>
-    <td style="width: 300px; height: 250px; vertical-align: top; padding: 10px; overflow: hidden;">
+    <td style="width: 100px; height: 150px; vertical-align: top; padding: 10px; overflow: hidden;">
       <div style="position: relative;">
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
           Giao diện 2
