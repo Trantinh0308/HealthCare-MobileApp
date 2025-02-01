@@ -14,20 +14,20 @@
 # Hình ảnh kết quả dự án:
 <table>
   <tr>
-    <td style="width: 500px; height: 450px; vertical-align: top; padding: 10px;">
+    <td style="width: 300px; height: 250px; vertical-align: top; padding: 10px; overflow: hidden;">
       <div style="position: relative;">
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
           Giao diện 1
         </div>
-        <img src="docs/images/anh1.jpg" style="height: 200px; width: auto; max-width: 100%;" />
+        <img src="docs/images/anh1.jpg" style="height: 100%; width: auto; max-width: 100%; object-fit: contain;" />
       </div>
     </td>
-    <td style="width: 500px; height: 450px; vertical-align: top; padding: 10px;">
+    <td style="width: 300px; height: 250px; vertical-align: top; padding: 10px; overflow: hidden;">
       <div style="position: relative;">
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
           Giao diện 2
         </div>
-        <img src="docs/images/anh2.png" style="height: 200px; width: auto; max-width: 100%;" />
+        <img src="docs/images/anh2.png" style="height: 100%; width: auto; max-width: 100%; object-fit: contain;" />
       </div>
     </td>
   </tr>
