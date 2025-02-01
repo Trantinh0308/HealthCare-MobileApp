@@ -22,7 +22,7 @@
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
           Giao diện 1
         </div>
-        <img src="docs/images/anh3.png" width="200;height = 300" />
+        <img src="docs/images/anh2.png" width="200;height = 300" />
       </div>
     </td>
     <td style="padding: 10px; vertical-align: top; width: 30%;">
@@ -30,7 +30,7 @@
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
           Giao diện 2
         </div>
-        <img src="docs/images/anh2.png" width="200;height = 300" />
+        <img src="docs/images/anh3.png" width="200;height = 300" />
       </div>
     </td>
   </tr>
