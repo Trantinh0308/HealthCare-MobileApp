@@ -16,9 +16,9 @@
   <tr>
     <td>
       <div style="position: relative;">
-        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;width:40%">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold">
           Giao diện 1
-        </div>
+        </div style="width:40%">
         <img src="docs/images/anh1.jpg" style="height: 200px; width: auto;" />
       </div>
     </td>
