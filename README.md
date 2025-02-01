@@ -12,9 +12,9 @@
 - Tạo kết quả khám, kê đơn thuốc cho bệnh nhân.
 
 # Hình ảnh kết quả dự án:
-- Giao diện chính
-<img src="docs/images/anh1.jpg" width="200;height = 300" />
-- Chức năng đặt lịch khám
+- **Giao diện chính**  
+  <img src="docs/images/anh1.jpg" width="200" height="300" />
+- **Chức năng đặt lịch khám**
 <table>
   <tr>
     <td style="padding: 10px; vertical-align: top; width: 30%;">
