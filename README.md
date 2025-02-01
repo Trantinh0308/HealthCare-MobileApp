@@ -17,7 +17,7 @@
 - Chức năng đặt lịch khám
 <table>
   <tr>
-    <td style="padding: 10px; vertical-align: top;">
+    <td style="padding: 30px; vertical-align: top;">
       <div style="position: relative;">
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
           Giao diện 1
@@ -25,7 +25,7 @@
         <img src="docs/images/anh3.png" style="max-width: 100%; height: auto;" />
       </div>
     </td>
-    <td style="padding: 10px; vertical-align: top;">
+    <td style="padding: 30px; vertical-align: top;">
       <div style="position: relative;">
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
           Giao diện 2
