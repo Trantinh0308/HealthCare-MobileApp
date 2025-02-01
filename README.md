@@ -12,23 +12,26 @@
 - Tạo kết quả khám, kê đơn thuốc cho bệnh nhân.
 
 # Hình ảnh kết quả dự án:
-<ul style="display: flex; padding: 0; list-style: none; margin: 0;">
-  <!-- Khối 1 -->
-  <li style="flex: 1; position: relative; margin-right: 20px;">
-    <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-      Giao diện 1
-    </div>
-    <img src="docs/images/anh1.jpg" width="20%" />
-  </li>
-
-  <!-- Khối 2 -->
-  <li style="flex: 1; position: relative;">
-    <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-      Giao diện 2
-    </div>
-    <img src="docs/images/anh2.png" width="20%" />
-  </li>
-</ul>
+<table>
+  <tr>
+    <td>
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Giao diện 1
+        </div>
+        <img src="docs/images/anh1.jpg" width="100%" />
+      </div>
+    </td>
+    <td>
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Giao diện 2
+        </div>
+        <img src="docs/images/anh2.png" width="100%" />
+      </div>
+    </td>
+  </tr>
+</table>
 
 
 
