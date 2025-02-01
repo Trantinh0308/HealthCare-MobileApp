@@ -13,7 +13,7 @@
 
 # Hình ảnh kết quả dự án:
 - Giao diện chính
-<img src="docs/images/anh1.jpg" width="100;height = 200" />
+<img src="docs/images/anh1.jpg" width="200;height = 300" />
 
 
 
