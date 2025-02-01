@@ -10,8 +10,7 @@
 ## Bác sĩ:
 - Khám trực tuyến qua video call với bệnh nhân.
 - Tạo kết quả khám, kê đơn thuốc cho bệnh nhân.
-## Demo:
-[![Watch the video](https://i.sstatic.net/Vp2cE.png)]([https://youtu.be/vt5fpE0bzSY](https://www.youtube.com/watch?v=Yd8Tp9csjYw&t=54s))
+
 # Hình ảnh kết quả dự án:
 - ## Giao diện chính 
   <img src="docs/images/anh1.jpg" width="200" height="450" />
