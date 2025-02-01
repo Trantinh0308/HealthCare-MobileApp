@@ -12,101 +12,100 @@
 - Tạo kết quả khám, kê đơn thuốc cho bệnh nhân.
 
 # Hình ảnh kết quả dự án:
-- ## Giao diện chính 
+
+- ## Giao diện chính
   <img src="docs/images/anh1.jpg" width="200" height="450" />
+
 - ## Chức năng đặt lịch khám
- <table>
-  <tr>
-    <td style="padding: 10px; vertical-align: top; width: 30%;">
-      <div style="position: relative;">
-        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-          Chọn chuyên khoa
+  <table>
+    <tr>
+      <td style="padding: 10px; vertical-align: top; width: 30%;">
+        <div style="position: relative;">
+          <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+            Chọn chuyên khoa
+          </div>
+          <img src="docs/images/anh2.jpg" width="200" height="300" />
         </div>
-        <img src="docs/images/anh2.jpg" width="200;height = 300" />
-      </div>
-    </td>
-    <td style="padding: 10px; vertical-align: top; width: 30%;">
-      <div style="position: relative;">
-        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-          Chọn bác sĩ
+      </td>
+      <td style="padding: 10px; vertical-align: top; width: 30%;">
+        <div style="position: relative;">
+          <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+            Chọn bác sĩ
+          </div>
+          <img src="docs/images/anh3.png" width="200" height="300" />
         </div>
-        <img src="docs/images/anh3.png" width="200;height = 300" />
-      </div>
-    </td>
-    <td style="padding: 10px; vertical-align: top; width: 30%;">
-      <div style="position: relative;">
-        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-          Chọn giờ khám
+      </td>
+      <td style="padding: 10px; vertical-align: top; width: 30%;">
+        <div style="position: relative;">
+          <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+            Chọn giờ khám
+          </div>
+          <img src="docs/images/anh4.png" width="200" height="300" />
         </div>
-        <img src="docs/images/anh4.png" width="200;height = 300" />
-      </div>
-    </td>
-    <td style="padding: 10px; vertical-align: top; width: 30%;">
-      <div style="position: relative;">
-        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-          Nhập triệu chứng
+      </td>
+      <td style="padding: 10px; vertical-align: top; width: 30%;">
+        <div style="position: relative;">
+          <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+            Nhập triệu chứng
+          </div>
+          <img src="docs/images/anh5.png" width="200" height="300" />
         </div>
-        <img src="docs/images/anh5.png" width="200;height = 300" />
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td style="padding: 10px; vertical-align: top; width: 30%;">
-      <div style="position: relative;">
-        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-          Chọn phương thức thanh toán
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; vertical-align: top; width: 30%;">
+        <div style="position: relative;">
+          <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+            Chọn phương thức thanh toán
+          </div>
+          <img src="docs/images/anh6.jpg" width="200" height="300" />
         </div>
-        <img src="docs/images/anh6.jpg" width="200;height = 300" />
-      </div>
-    </td>
-    <td style="padding: 10px; vertical-align: top; width: 30%;">
-      <div style="position: relative;">
-        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-          Thanh toán zalopay
+      </td>
+      <td style="padding: 10px; vertical-align: top; width: 30%;">
+        <div style="position: relative;">
+          <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+            Thanh toán zalopay
+          </div>
+          <img src="docs/images/anh7.jpg" width="200" height="300" />
         </div>
-        <img src="docs/images/anh7.jpg" width="200;height = 300" />
-      </div>
-    </td>
-    <td style="padding: 10px; vertical-align: top; width: 30%;">
-      <div style="position: relative;">
-        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-          Xác nhận thành công
+      </td>
+      <td style="padding: 10px; vertical-align: top; width: 30%;">
+        <div style="position: relative;">
+          <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+            Xác nhận thành công
+          </div>
+          <img src="docs/images/anh8.jpg" width="200" height="300" />
         </div>
-        <img src="docs/images/anh8.jpg" width="200;height = 300" />
-      </div>
-    </td>
-  </tr>
- </table>
-- Chức năng khám bệnh trực tuyến
- <table>
-  <tr>
-    <td style="padding: 10px; vertical-align: top; width: 30%;">
-      <div style="position: relative;">
-        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-          Phòng chat
-        </div>
-        <img src="docs/images/anh14.png" width="200;height = 300" />
-      </div>
-    </td>
-    <td style="padding: 10px; vertical-align: top; width: 30%;">
-      <div style="position: relative;">
-        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-          Xem chỉ số sức khỏe
-        </div>
-        <img src="docs/images/anh15.png" width="200;height = 300" />
-      </div>
-    </td>
-    <td style="padding: 10px; vertical-align: top; width: 30%;">
-      <div style="position: relative;">
-        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-          Gọi video call
-        </div>
-        <img src="docs/images/anh16.png" width="200;height = 300" />
-      </div>
-    </td>
-  </tr>
- </table>
+      </td>
+    </tr>
+  </table>
 
-
-
-
+- ## Chức năng khám bệnh trực tuyến:
+  <table>
+    <tr>
+      <td style="padding: 10px; vertical-align: top; width: 30%;">
+        <div style="position: relative;">
+          <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+            Phòng chat
+          </div>
+          <img src="docs/images/anh14.png" width="200" height="300" />
+        </div>
+      </td>
+      <td style="padding: 10px; vertical-align: top; width: 30%;">
+        <div style="position: relative;">
+          <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+            Xem chỉ số sức khỏe
+          </div>
+          <img src="docs/images/anh15.png" width="200" height="300" />
+        </div>
+      </td>
+      <td style="padding: 10px; vertical-align: top; width: 30%;">
+        <div style="position: relative;">
+          <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+            Gọi video call
+          </div>
+          <img src="docs/images/anh16.png" width="200" height="300" />
+        </div>
+      </td>
+    </tr>
+  </table>
