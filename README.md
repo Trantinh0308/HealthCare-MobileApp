@@ -11,6 +11,8 @@
 - Khám trực tuyến qua video call với bệnh nhân.
 - Tạo kết quả khám, kê đơn thuốc cho bệnh nhân.
 
+[Demo](https://youtu.be/T-D1KVIuvjA)
+
 # Hình ảnh kết quả dự án:
 - ## Giao diện chính 
   <img src="docs/images/anh1.jpg" width="200" height="450" />
