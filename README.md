@@ -13,11 +13,12 @@
 
 # Hình ảnh kết quả dự án:
 <div style="position: relative; display: inline-block;">
-  <img src="docs/images/anh1.jpg" width="300" />
   <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
     Giao diện
   </div>
+  <img src="docs/images/anh1.jpg" width="300" />
 </div>
+
 
 
 
