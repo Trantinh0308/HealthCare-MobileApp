@@ -11,7 +11,7 @@
 - Khám trực tuyến qua video call với bệnh nhân.
 - Tạo kết quả khám, kê đơn thuốc cho bệnh nhân.
 ## Demo:
-<iframe width="560" height="315" src="[https://www.youtube.com/embed/VIDEO_ID](https://www.youtube.com/watch?v=Yd8Tp9csjYw&t=54s)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=Yd8Tp9csjYw&t=54s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # Hình ảnh kết quả dự án:
 - ## Giao diện chính 
