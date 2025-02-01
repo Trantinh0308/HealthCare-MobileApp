@@ -12,21 +12,23 @@
 - Tạo kết quả khám, kê đơn thuốc cho bệnh nhân.
 
 # Hình ảnh kết quả dự án:
-<ul style="display: flex; list-style: none; padding: 0;">
-  <li style="position: relative; margin-right: 20px;">
+<div style="display: flex; justify-content: space-between; padding: 0;">
+  <!-- Khối 1 -->
+  <div style="position: relative; width: 48%;">
     <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-      Giao diện
+      Giao diện 1
     </div>
-    <img src="docs/images/anh1.jpg" width="300" />
-  </li>
+    <img src="docs/images/anh1.jpg" width="100%" />
+  </div>
 
-  <li style="position: relative;">
+  <!-- Khối 2 -->
+  <div style="position: relative; width: 48%;">
     <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
       Giao diện 2
     </div>
-    <img src="docs/images/anh2.png" width="300" />
-  </li>
-</ul>
+    <img src="docs/images/anh2.jpg" width="100%" />
+  </div>
+</div>
 
 
 
