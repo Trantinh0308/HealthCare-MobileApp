@@ -12,19 +12,22 @@
 - Tạo kết quả khám, kê đơn thuốc cho bệnh nhân.
 
 # Hình ảnh kết quả dự án:
-<div style="display: inline-block; position: relative; margin-right: 20px;">
-  <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-    Giao diện
-  </div>
-  <img src="docs/images/anh1.jpg" width="300" />
-</div>
+<ul style="display: flex; list-style: none; padding: 0;">
+  <li style="position: relative; margin-right: 20px;">
+    <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+      Giao diện
+    </div>
+    <img src="docs/images/anh1.jpg" width="300" />
+  </li>
 
-<div style="display: inline-block; position: relative;">
-  <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-    Giao diện 2
-  </div>
-  <img src="docs/images/anh2.png" width="300" />
-</div>
+  <li style="position: relative;">
+    <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+      Giao diện 2
+    </div>
+    <img src="docs/images/anh2.jpg" width="300" />
+  </li>
+</ul>
+
 
 
 
