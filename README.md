@@ -22,7 +22,7 @@
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
           Giao diện 1
         </div>
-        <img src="docs/images/anh3.png" style="max-width: 100%; height: auto;" alt="Giao diện 1" />
+        <img src="docs/images/anh3.png" width="200;height = 300" />
       </div>
     </td>
     <td style="padding: 10px; vertical-align: top; width: 30%;">
@@ -30,33 +30,12 @@
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
           Giao diện 2
         </div>
-        <img src="docs/images/anh2.png" style="max-width: 100%; height: auto;" alt="Giao diện 2" />
+        <img src="docs/images/anh2.png" width="200;height = 300" />
       </div>
     </td>
   </tr>
 </table>
 <head>
-<style>
-  table {
-    width: 50%; /* Điều chỉnh chiều rộng của bảng theo ý muốn */
-    margin: 0 auto; /* Để bảng ở giữa trang */
-    border-collapse: collapse; /* Loại bỏ khoảng cách giữa các ô */
-  }
-
-  td {
-    padding: 10px;
-    vertical-align: top;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-</style>
-
-
-
-
 
 
 
