@@ -13,7 +13,7 @@
 
 # Hình ảnh kết quả dự án:
 - Gia diện chính
-<img src="docs/images/screenshot.png" width="300" />
+<img src="docs/images/anh1.jpg" width="300" />
 
 
 
