@@ -12,22 +12,23 @@
 - Tạo kết quả khám, kê đơn thuốc cho bệnh nhân.
 
 # Hình ảnh kết quả dự án:
-<table style="width: 100%;">
+<table>
   <tr>
-    <!-- Khối 1 -->
-    <td style="width: 40%; position: relative;">
-      <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-        Giao diện 1
+    <td style="width: 300px; height: 250px; vertical-align: top; padding: 10px;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Giao diện 1
+        </div>
+        <img src="docs/images/anh1.jpg" style="height: 200px; width: auto; max-width: 100%;" />
       </div>
-      <img src="docs/images/anh1.jpg" style="height: 200px; width: 100%;" />
     </td>
-
-    <!-- Khối 2 -->
-    <td style="width: 40%; position: relative;">
-      <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-        Giao diện 2
+    <td style="width: 300px; height: 250px; vertical-align: top; padding: 10px;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Giao diện 2
+        </div>
+        <img src="docs/images/anh2.png" style="height: 200px; width: auto; max-width: 100%;" />
       </div>
-      <img src="docs/images/anh2.png" style="height: 200px; width: 100%;" />
     </td>
   </tr>
 </table>
