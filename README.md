@@ -14,21 +14,22 @@
 # Hình ảnh kết quả dự án:
 <div style="display: flex; justify-content: space-between; padding: 0;">
   <!-- Khối 1 -->
-  <div style="position: relative; width: 48%;">
+  <div style="position: relative; flex: 1; margin-right: 10px;">
     <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
       Giao diện 1
     </div>
-    <img src="docs/images/anh1.jpg" width="300" />
+    <img src="docs/images/anh1.jpg" width="100%" />
   </div>
 
   <!-- Khối 2 -->
-  <div style="position: relative; width: 48%;">
+  <div style="position: relative; flex: 1;">
     <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
       Giao diện 2
     </div>
-    <img src="docs/images/anh2.png" width="300" />
+    <img src="docs/images/anh2.png" width="100%" />
   </div>
 </div>
+
 
 
 
