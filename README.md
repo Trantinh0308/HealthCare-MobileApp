@@ -13,9 +13,33 @@
 
 # Hình ảnh kết quả dự án:
 - **Giao diện chính**  
-  <div style="border: 2px solid black; width: 200px; height: 300px; display: flex; justify-content: center; align-items: center;">
-  <img src="docs/images/anh1.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
+<body>
+<style>
+  /* Ẩn nội dung của thẻ <style> */
+  style {
+    display: none;
+  }
+
+  .image-container {
+    border: 2px solid black;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+
+<div class="image-container">
+  <img src="docs/images/anh1.jpg" />
 </div>
+</body>
 **Chức năng đặt lịch khám**
 <table>
   <tr>
