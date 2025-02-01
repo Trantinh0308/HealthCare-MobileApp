@@ -20,17 +20,25 @@
     <td style="padding: 10px; vertical-align: top; width: 30%;">
       <div style="position: relative;">
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-          Giao diện 1
+          Chọn chuyên khoa
         </div>
-        <img src="docs/images/anh2.png" width="200;height = 300" />
+        <img src="docs/images/anh2.jpg" width="200;height = 300" />
       </div>
     </td>
     <td style="padding: 10px; vertical-align: top; width: 30%;">
       <div style="position: relative;">
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
-          Giao diện 2
+          Chọn bác sĩ
         </div>
         <img src="docs/images/anh3.png" width="200;height = 300" />
+      </div>
+    </td>
+    <td style="padding: 10px; vertical-align: top; width: 30%;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Chọn giờ khám
+        </div>
+        <img src="docs/images/anh4.png" width="200;height = 300" />
       </div>
     </td>
   </tr>
