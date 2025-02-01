@@ -41,6 +41,40 @@
         <img src="docs/images/anh4.png" width="200;height = 300" />
       </div>
     </td>
+    <td style="padding: 10px; vertical-align: top; width: 30%;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Nhập triệu chứng
+        </div>
+        <img src="docs/images/anh5.png" width="200;height = 300" />
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 10px; vertical-align: top; width: 30%;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Chọn phương thức thanh toán
+        </div>
+        <img src="docs/images/anh6.jpg" width="200;height = 300" />
+      </div>
+    </td>
+    <td style="padding: 10px; vertical-align: top; width: 30%;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Thanh toán zalopay
+        </div>
+        <img src="docs/images/anh7.jpg" width="200;height = 300" />
+      </div>
+    </td>
+    <td style="padding: 10px; vertical-align: top; width: 30%;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Xác nhận thành công
+        </div>
+        <img src="docs/images/anh8.jpg" width="200;height = 300" />
+      </div>
+    </td>
   </tr>
 </table>
 
