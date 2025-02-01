@@ -12,8 +12,18 @@
 - Tạo kết quả khám, kê đơn thuốc cho bệnh nhân.
 
 # Hình ảnh kết quả dự án:
-- **Giao diện chính**  
-  <img src="docs/images/anh1.jpg" width="200" height="450" />
+- **Giao diện chính**
+  <table>
+  <tr>
+    <td style="padding: 10px; vertical-align: top; width: 30%;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+        </div>
+        <img src="docs/images/anh1.jpg" width="200" height="450" />
+      </div>
+    </td>
+  </tr>
+</table>
 - **Chức năng đặt lịch khám**
 <table>
   <tr>
