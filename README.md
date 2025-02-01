@@ -18,7 +18,7 @@
     <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
       Giao diện 1
     </div>
-    <img src="docs/images/anh1.jpg" width="100%" />
+    <img src="docs/images/anh1.jpg" width="20%" />
   </div>
 
   <!-- Khối 2 -->
@@ -26,7 +26,7 @@
     <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
       Giao diện 2
     </div>
-    <img src="docs/images/anh2.png" width="100%" />
+    <img src="docs/images/anh2.png" width="20%" />
   </div>
 </div>
 
