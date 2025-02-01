@@ -19,7 +19,7 @@
         <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
           Giao diện 1
         </div>
-        <img src="docs/images/anh1.jpg" style="max-width: 100%; height: auto;" />
+        <img src="docs/images/anh3.png" style="max-width: 100%; height: auto;" />
       </div>
     </td>
     <td style="padding: 10px; vertical-align: top;">
