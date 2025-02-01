@@ -77,7 +77,35 @@
     </td>
   </tr>
 </table>
-
+- ## Chức năng khám bệnh trực tuyến
+<table>
+  <tr>
+    <td style="padding: 10px; vertical-align: top; width: 30%;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Phòng chat
+        </div>
+        <img src="docs/images/anh14.png" width="200;height = 300" />
+      </div>
+    </td>
+    <td style="padding: 10px; vertical-align: top; width: 30%;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Xem chỉ số sức khỏe
+        </div>
+        <img src="docs/images/anh15.png" width="200;height = 300" />
+      </div>
+    </td>
+    <td style="padding: 10px; vertical-align: top; width: 30%;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Gọi video call
+        </div>
+        <img src="docs/images/anh16.png" width="200;height = 300" />
+      </div>
+    </td>
+  </tr>
+</table>
 
 
 
