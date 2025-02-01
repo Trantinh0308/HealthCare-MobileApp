@@ -24,7 +24,7 @@
     <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
       Giao diện 2
     </div>
-    <img src="docs/images/anh2.jpg" width="300" />
+    <img src="docs/images/anh2.png" width="300" />
   </li>
 </ul>
 
