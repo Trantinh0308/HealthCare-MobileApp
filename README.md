@@ -15,9 +15,9 @@
 - **Giao diện chính**
   <table>
   <tr>
-    <td>
+    <td style="padding: 0; vertical-align: top;">
       <div>
-        <img src="docs/images/anh1.jpg" width="200" height="450" />
+        <img src="docs/images/anh1.jpg" style="width: 100%; height: auto;" />
       </div>
     </td>
   </tr>
