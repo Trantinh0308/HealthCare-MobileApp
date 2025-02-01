@@ -12,6 +12,7 @@
 - Tạo kết quả khám, kê đơn thuốc cho bệnh nhân.
 
 # Hình ảnh kết quả dự án:
+Giao diện
 <img src="docs/images/anh1.jpg" width="300" />
 
 
