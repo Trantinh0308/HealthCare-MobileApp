@@ -108,6 +108,36 @@
   </tr>
  </table>
 
+ - ## Chức năng nhắc nhở lịch uống thuốc
+ <table>
+  <tr>
+    <td style="padding: 10px; vertical-align: top; width: 30%;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Danh sách lịch nhắc nhở
+        </div>
+        <img src="docs/images/anh10.png" width="200;height = 300" />
+      </div>
+    </td>
+    <td style="padding: 10px; vertical-align: top; width: 30%;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Tạo mới lịch nhắc
+        </div>
+        <img src="docs/images/anh11.png" width="200;height = 300" />
+      </div>
+    </td>
+    <td style="padding: 10px; vertical-align: top; width: 30%;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Tùy chỉnh lịch nhắc
+        </div>
+        <img src="docs/images/anh12.png" width="200;height = 300" />
+      </div>
+    </td>
+  </tr>
+ </table>
+
 
 
 
