@@ -14,7 +14,7 @@
 # Hình ảnh kết quả dự án:
 - **Giao diện chính**  
   <img src="docs/images/anh1.jpg" width="200" height="450" />
-**Chức năng đặt lịch khám**
+- **Chức năng đặt lịch khám**
 <table>
   <tr>
     <td style="padding: 10px; vertical-align: top; width: 30%;">
