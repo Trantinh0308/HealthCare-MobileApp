@@ -1,16 +1,42 @@
-# Dự án android "Ứng dụng khám chữa bệnh trực tuyến"
-# Bệnh nhận :
-_ Login bằng email, tài khoản google
-_ Đặt lịch khám trực tuyến
-_ Thanh toán phí khám trực tuyến
-_ Khám trực tuyến qua video call với bác sĩ
-_ Tạo lịch nhắc nhở uống thuốc cho đơn thuốc
-# Bác sĩ :
-_ Khám trực tuyến qua video call với bệnh nhân
-_ Tạo kết quả khám, kê đơn thuốc cho bệnh nhân
+# Dự án Android "Ứng dụng Khám Chữa Bệnh Trực Tuyến"
 
-# Hình ảnh kết quả dự án
-![Ảnh minh họa giao diện](docs/images/anh1.png)
+## Bệnh nhân:
+- Đăng nhập bằng email, tài khoản Google.
+- Đặt lịch khám trực tuyến.
+- Thanh toán phí khám trực tuyến.
+- Khám trực tuyến qua video call với bác sĩ.
+- Tạo lịch nhắc nhở uống thuốc cho đơn thuốc.
 
-<img src="docs/images/anh1.png" width="300" />
+## Bác sĩ:
+- Khám trực tuyến qua video call với bệnh nhân.
+- Tạo kết quả khám, kê đơn thuốc cho bệnh nhân.
+
+# Hình ảnh kết quả dự án:
+- **Giao diện chính**  
+  <img src="docs/images/anh1.jpg" width="200" height="450" />
+- **Chức năng đặt lịch khám**
+<table>
+  <tr>
+    <td style="padding: 10px; vertical-align: top; width: 30%;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Giao diện 1
+        </div>
+        <img src="docs/images/anh2.png" width="200;height = 300" />
+      </div>
+    </td>
+    <td style="padding: 10px; vertical-align: top; width: 30%;">
+      <div style="position: relative;">
+        <div style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px; font-weight: bold;">
+          Giao diện 2
+        </div>
+        <img src="docs/images/anh3.png" width="200;height = 300" />
+      </div>
+    </td>
+  </tr>
+</table>
+
+
+
+
 
