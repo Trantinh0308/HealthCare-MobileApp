@@ -14,11 +14,27 @@ public class User {
     private int height;
     private int weight;
     private String image;
-    private Timestamp createdTimestamp;
+    private long createdTime;
     private List<User> relativeList;
     private String relative;
     private String userId;
     public User() {
+    }
+
+    public User(String fullName, String gender, String phoneNumber, String address, String birth,
+                int height, int weight, String image, long createdTime, List<User> relativeList, String relative, String userId) {
+        this.fullName = fullName;
+        this.gender = gender;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.birth = birth;
+        this.height = height;
+        this.weight = weight;
+        this.image = image;
+        this.createdTime = createdTime;
+        this.relativeList = relativeList;
+        this.relative = relative;
+        this.userId = userId;
     }
 
     public String getFullName() {
@@ -85,12 +101,12 @@ public class User {
         this.image = image;
     }
 
-    public Timestamp getCreatedTimestamp() {
-        return createdTimestamp;
+    public long getCreatedTime() {
+        return createdTime;
     }
 
-    public void setCreatedTimestamp(Timestamp createdTimestamp) {
-        this.createdTimestamp = createdTimestamp;
+    public void setCreatedTime(long createdTime) {
+        this.createdTime = createdTime;
     }
 
     public String getUserId() {

@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:background="@color/mainColor"
+        android:paddingEnd="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="7dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sửa hồ sơ"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="25dp"
+            android:src="@drawable/icon_back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="@color/white"
+            android:layout_centerVertical="true"
+            android:id="@+id/back_btn" />
+
+        <ImageButton
+            android:id="@+id/btn_edit"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/edit_icon"
+            android:layout_alignParentEnd="true"
+            android:backgroundTint="@color/white" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_below="@id/top_layout"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/body"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/block_one"
+                android:paddingStart="15dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/image_account"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/profile" />
+
+                <RelativeLayout
+                    android:layout_below="@id/image_account"
+                    android:layout_marginTop="8dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/btnDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        android:paddingTop="1.5dp"
+                        android:paddingBottom="1.5dp"
+                        android:text="Chủ tài khoản"
+                        android:textColor="@color/white"
+                        android:textSize="10.5sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:backgroundTint="@color/colorCircleSelected"
+                        android:background="@drawable/custom_button_google"
+                        android:gravity="center_vertical|center_horizontal" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/block_two"
+                android:layout_below="@id/block_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/top_block_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/title_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Họ và tên"
+                        android:textColor="@color/text_Color"
+                        android:textSize="17dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:text="*"
+                        android:textColor="@color/Red"
+                        android:layout_toEndOf="@id/title_name" />
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/fullName_user"
+                    android:layout_below="@id/top_block_two"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:enabled="false"
+                    android:singleLine="true"
+                    android:textColor="@color/text_Color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_edittext_profile" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/block_three"
+                android:layout_below="@id/block_two"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/top_block_three"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/title_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Số điện thoại"
+                        android:textColor="@color/text_Color"
+                        android:textSize="17dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:text="*"
+                        android:textColor="@color/Red"
+                        android:layout_toEndOf="@id/title_phone" />
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/phoneNumber_user"
+                    android:layout_below="@id/top_block_three"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/text_Color"
+                    android:enabled="false"
+                    android:singleLine="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_edittext_profile" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/block_four"
+                android:layout_below="@id/block_three"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/top_block_four"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/title_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Địa chỉ"
+                        android:textColor="@color/text_Color"
+                        android:textSize="17dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:text="*"
+                        android:textColor="@color/Red"
+                        android:layout_toEndOf="@id/title_address" />
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/address_user"
+                    android:layout_below="@id/top_block_four"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:enabled="false"
+                    android:singleLine="true"
+                    android:textColor="@color/text_Color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_edittext_profile" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/block_five"
+                android:layout_below="@id/block_four"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/top_block_five"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/title_birth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ngày sinh"
+                        android:textColor="@color/text_Color"
+                        android:textSize="17dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:text="*"
+                        android:textColor="@color/Red"
+                        android:layout_toEndOf="@id/title_birth" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_below="@id/top_block_five"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/col_one"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/birth_user"
+                            android:paddingStart="10dp"
+                            android:paddingTop="10dp"
+                            android:layout_marginTop="10dp"
+                            android:textSize="18dp"
+                            android:textColor="@color/text_Color"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/custom_edittext_profile" />
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginTop="42dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:src="@drawable/custom_calendar" />
+                    </RelativeLayout>
+
+                    <RadioGroup
+                        android:id="@+id/gender_user"
+                        android:layout_toEndOf="@id/col_one"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="30dp"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/male"
+                            android:text="Nam"
+                            android:enabled="false"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <RadioButton
+                            android:id="@+id/female"
+                            android:text="Nữ"
+                            android:enabled="false"
+                            android:layout_marginLeft="40dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </RadioGroup>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/block_six"
+                android:layout_below="@id/block_five"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/block_six_col_one"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/top_block_six_col_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/title_height"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chiều cao"
+                            android:textColor="@color/text_Color"
+                            android:textSize="17dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="3dp"
+                            android:text="*"
+                            android:textColor="@color/Red"
+                            android:layout_toEndOf="@id/title_height" />
+                    </RelativeLayout>
+
+                    <EditText
+                        android:id="@+id/height_user"
+                        android:layout_below="@id/top_block_six_col_one"
+                        android:paddingStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:enabled="false"
+                        android:singleLine="true"
+                        android:textColor="@color/text_Color"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_edittext_profile" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/block_six_col_two"
+                    android:layout_toEndOf="@id/block_six_col_one"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/top_block_six_col_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/title_weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cân nặng"
+                            android:textColor="@color/text_Color"
+                            android:textSize="17dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="3dp"
+                            android:text="*"
+                            android:textColor="@color/Red"
+                            android:layout_toEndOf="@id/title_weight" />
+                    </RelativeLayout>
+
+                    <EditText
+                        android:id="@+id/weight_user"
+                        android:layout_below="@id/top_block_six_col_two"
+                        android:paddingStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:enabled="false"
+                        android:textColor="@color/text_Color"
+                        android:singleLine="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_edittext_profile" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottom_Layout"
+        android:visibility="gone"
+        app:cardElevation="7dp"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="77dp">
+
+        <RelativeLayout
+            android:id="@+id/enterBook"
+            android:background="@drawable/custom_button"
+            android:clickable="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lưu lại"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

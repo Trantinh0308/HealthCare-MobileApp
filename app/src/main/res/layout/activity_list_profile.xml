@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.patient.Profile">
+
+    <RelativeLayout
+        android:background="#EBEEF8"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/top_layout"
+            android:layout_width="match_parent"
+            android:background="@color/mainColor"
+            android:paddingEnd="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingStart="7dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thành viên gia đình"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+
+            <ImageView
+                android:id="@+id/btn_add"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:layout_marginRight="3dp"
+                android:src="@drawable/add_person"
+                android:backgroundTint="@color/white"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/user"
+            android:layout_below="@id/top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="2dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:padding="7dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/image_Account"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/profile" />
+
+                    <RelativeLayout
+                        android:id="@+id/detail"
+                        android:paddingStart="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toEndOf="@+id/image_Account">
+
+                        <TextView
+                            android:id="@+id/fullName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Trần Đình Tính"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <RelativeLayout
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/relationship"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="8dp"
+                                android:backgroundTint="@color/colorCircleSelected"
+                                android:paddingEnd="8dp"
+                                android:paddingTop="1.5dp"
+                                android:paddingBottom="1.5dp"
+                                android:text="Tôi"
+                                android:textSize="11sp"
+                                android:textColor="@color/text_Color"
+                                android:fontFamily="sans-serif-medium"
+                                android:background="@drawable/custom_button_google"
+                                android:gravity="center_vertical|center_horizontal"
+                                android:clickable="true" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/birth"
+                            android:layout_marginTop="3dp"
+                            android:layout_below="@+id/fullName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ngày sinh: "
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/phoneNumber"
+                            android:layout_marginTop="3dp"
+                            android:layout_below="@+id/birth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Điện thoại: "
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/user">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.healthcare"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.healthcare"
@@ -47,6 +47,7 @@ dependencies {
         "include" to listOf("*.aar", "*.jar"),
         "exclude" to listOf("")
     )))
+    implementation("androidx.recyclerview:recyclerview:1.4.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")

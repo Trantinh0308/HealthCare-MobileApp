@@ -93,18 +93,24 @@ public class AndroidUtil {
         intent.putExtra("userId",model.getUserId());
         intent.putExtra("fullNameUser",model.getFullName());
         intent.putExtra("genderUser",model.getGender());
+        intent.putExtra("height",model.getHeight());
+        intent.putExtra("weight",model.getWeight());
         intent.putExtra("phoneNumberUser",model.getPhoneNumber());
         intent.putExtra("addressUser",model.getAddress());
         intent.putExtra("birthUser",model.getBirth());
+        intent.putExtra("relative",model.getRelative());
     }
     public static User getUserFromIntent(Intent intent){
         User user = new User();
         user.setUserId(intent.getStringExtra("userId"));
         user.setFullName(intent.getStringExtra("fullNameUser"));
+        user.setHeight(intent.getIntExtra("height",165));
+        user.setWeight(intent.getIntExtra("weight",165));
         user.setGender(intent.getStringExtra("genderUser"));
         user.setPhoneNumber(intent.getStringExtra("phoneNumberUser"));
         user.setAddress(intent.getStringExtra("addressUser"));
         user.setBirth(intent.getStringExtra("birthUser"));
+        user.setRelative(intent.getStringExtra("relative"));
         return user;
     }
     public static void passOnlineAppointmentAsIntent(Intent intent, OnlineAppointment model){

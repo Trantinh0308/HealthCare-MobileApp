@@ -110,16 +110,21 @@ public class DoctorDetail extends AppCompatActivity {
             @Override
             public void onDataLoaded(int size) {
                 evaluateSum.setText("("+size+")");
-                int totalRating = 0;
-                for (int i = 0; i < size; i++) {
-                    Evaluate evaluate = evaluateAdapter.getItem(i);
-                    totalRating += evaluate.getRating();
+                if (size == 0){
+                    ratingAverage.setText("");
                 }
-                float average = (float) totalRating /size;
-                if (average == (int) average) {
-                    ratingAverage.setText(String.format("%d", (int) average));
-                } else {
-                    ratingAverage.setText(String.format("%.1f", average));
+                else {
+                    int totalRating = 0;
+                    for (int i = 0; i < size; i++) {
+                        Evaluate evaluate = evaluateAdapter.getItem(i);
+                        totalRating += evaluate.getRating();
+                    }
+                    float average = (float) totalRating /size;
+                    if (average == (int) average) {
+                        ratingAverage.setText(String.format("%d", (int) average));
+                    } else {
+                        ratingAverage.setText(String.format("%.1f", average));
+                    }
                 }
             }
         });
